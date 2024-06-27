@@ -20412,7 +20412,7 @@ function CarregarPostsV1(url, container, library) {
             }
             unblockUI(library.html.parent());
             library.btnLoad.html(library.btnLoad.data('txt'));
-            console.log(library);
+            console.log('library: ', library);
             if (library.page >= library.totalPages - 1) {
                 library.btnLoad.attr("disabled", !0).unbind().removeAttr('href')
             } else {
@@ -20420,7 +20420,7 @@ function CarregarPostsV1(url, container, library) {
             }
         },
     }).fail(function(reason) {
-        console.log(reason)
+        console.log('reason: ', reason)
     });
     library.btnLoad.unbind().click(function(e) {
         e.preventDefault();
@@ -20470,7 +20470,7 @@ function CarregarPostsV2(url, container, library) {
             unblockUI(library.html.parent());
             library.btnAntigas.html(library.btnAntigas.data('txt'));
             library.btnRecentes.html(library.btnRecentes.data('txt'));
-            console.log(library);
+            console.log('library: ', library);
             if (library.page <= 0) {
                 library.btnRecentes.attr("disabled", !0).unbind().removeAttr('href')
             } else {
@@ -20483,7 +20483,7 @@ function CarregarPostsV2(url, container, library) {
             }
         },
     }).fail(function(reason) {
-        console.log(reason)
+        console.log('reason: ', reason)
     });
     library.btnAntigas.unbind().click(function(e) {
         e.preventDefault();
