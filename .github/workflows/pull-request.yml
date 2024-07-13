@@ -1,0 +1,27 @@
+name: Auto Create Pull Request
+
+# O workflow é acionado sempre que há um push na branch develop
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  create_pull_request:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'Auto create pull request'
+        branch: develop
+        base: main
+        title: 'Merge develop into main'
+        body: |
+          This is an automatically created pull request to merge changes from develop to main.
+        draft: false
