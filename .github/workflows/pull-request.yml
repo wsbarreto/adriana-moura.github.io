@@ -1,27 +1,20 @@
-name: Auto Create Pull Request
+name: .NET Core CI (Continuous Integration) #Definimos o nome do nosso Workflow
 
-# O workflow é acionado sempre que há um push na branch develop
 on:
   push:
     branches:
-      - develop
+      - develop #Definimos o gatilho para nossa automação
 
 jobs:
-  create_pull_request:
+
+  CreatePullRequest:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v5
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: 'Auto create pull request'
-        branch: develop
-        base: main
-        title: 'Merge develop into main'
-        body: |
-          This is an automatically created pull request to merge changes from develop to main.
-        draft: false
+      - name: Create pull request #Etapa de criação do pull request usando o cli do github
+        run: gh pr create -B main -H develop --title 'Merge Develop into Main' --body 'Created automatic Pull Request by Github action.'
+        env:
+            GITHUB_TOKEN: ${{ secrets.PAT }}
