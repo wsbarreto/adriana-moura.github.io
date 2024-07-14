@@ -16315,6 +16315,14 @@ fieldset[disabled] .btn-white.active {
   padding-left: 100px !important
 }
 
+.p-left-100 {
+  padding-left: 400px !important;
+  position: absolute;
+  left: 22px;
+  width: 5px;
+  display: inline-block;
+}
+
 .p-b-100 {
   padding-bottom: 100px !important
 }
