@@ -15041,30 +15041,67 @@ button.swiper-pagination-bullet {
 }
 
 /* Adriana Moura */
+.font-adriana {
+  font-family: 'Adobe Caslon Pro';
+}
+
+.img-logo {
+  height: 700px; 
+  width: 200px;
+}
+
+.evento-mobile {
+  margin-top:0px
+}
+
+.section-home {
+  overflow:hidden;
+}
+
+.section-evento {
+  margin-top:-40px;
+}
+
+.section-conteudo-vip {
+  z-index:1;
+}
+
+.section-rede-social {
+  margin-top:-15px;
+}
+
+.section-contato {
+  margin-top:-50px;
+}
+
+.section-estatisticas {
+  background-image:url('assets/img/dri-apresentacao.png');
+}
+
 .text-primary {
-  color: #F2B672
-  /* color: #F2B672; /* adriana moura */ */
+  color: #F2B672;
+  /* color: #F2B672; /* adriana moura */
 }
 
 .text-secondary {
-  color: #618fac
+  color: #618fac;
 }
 
 .text-terciary {
-  color: #1a2325
+  color: #1a2325;
 }
 
 .text-dark {
-  color: #1a2325
+  color: #1a2325;
 }
 
 /* Adriana Moura */
 .text-adriana {
-  color: #F2B672
+  color: #F2B672;
 }
 /* Adriana Moura */
 .text-adriana-dark {
-  color: #575757
+  color: #575757;
 }
 
 .text-skids {
