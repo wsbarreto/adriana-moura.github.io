@@ -4,7 +4,7 @@
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta property="og:title" content="Adriana Moura | Inteligência Emocional" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="assets/img/fb2.jpg" />
@@ -19,6 +19,8 @@
       <title>Adriana Moura | Inteligência Emocional</title>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800|Raleway:400,800&amp;subset=latin-ext" rel="stylesheet">
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/menu.css">
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
       <script src="https://use.fontawesome.com/d3e0186f62.js"></script>
       <script type="text/javascript">
          var urlSite = "https://adrianamoura.com.br/"; 
@@ -27,8 +29,7 @@
    </head>
 
    <body data-spy="scroll" data-target=".navbar" class="page-home">
-      <div class="modal fade" id="modalDinamica" tabindex="-1" role="dialog" aria-labelledby="modalDinamica"
-         aria-hidden="true">
+      <div class="modal fade" id="modalDinamica" tabindex="-1" role="dialog" aria-labelledby="modalDinamica" aria-hidden="true">
          <div class="conteudo"></div>
       </div>
       <header class=" menu-principal-v2 hidden-xs">
@@ -37,7 +38,7 @@
                <div class="row">
                   <div class="col-md-8 col-md-offset-4 col-sm-9 col-sm-offset-3">
                      <div class="flexbox">
-                        <a title="www"  class="btn btn-transparent-w" target="_blank"  rel="noopener" href="mailto:adriana@adrianamouracoach.com.br">
+                        <a title="e-mail"  class="btn btn-transparent-w" target="_blank"  rel="noopener" href="mailto:adriana@adrianamouracoach.com.br">
                            <i class="fa fa-envelope"></i>adriana@adrianamouracoach.com.br
                         </a>
                         <a title="www"  class="btn btn-transparent-w" target="_blank"  rel="noopener"
@@ -68,7 +69,7 @@
                </div>
                <div class="col-md-8 col-sm-9">
                   <div class="flexbox principal">
-                     <a title="home" class='menu-home' href='index.html'>Homer</a>
+                     <a title="home" class='menu-home' href='index.html'>Home</a>
                      <a title="sobre" class='menu-sobre' href='#sobre'>Sobre</a>
                      <a title="solucoes" class='menu-solucoes' href='#solucoes'>Soluções</a>
                      <a title="depoimentos" class='menu-depoimentos' href='#depoimentos'>Depoimentos</a>
@@ -79,20 +80,42 @@
          </div>
       </header>
    <!-- mobile -->
-      <div class=" menu-principal-v2-mobile visible-xs"> 
-         <a title="logotipo mobile"  href="index.html">
-            <img title="logo 1 mobile" class="logo logo-color img-responsive center-block" src="https://wsbarreto.github.io/adriana-moura.github.io/assets/img/favicon.png">
-            <img title="logo 2 mobile" class="logo logo-white img-responsive center-block" src="https://wsbarreto.github.io/adriana-moura.github.io/assets/img/favicon.png">
-         </a>
+      <div class=" menu-principal-v2-mobile visible-xs">
+         <div class="flexbox principal">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <a title="logotipo mobile"  href="index.html">
+                  <img title="logo 1 mobile" class="logo logo-color img-responsive center-block" src="https://wsbarreto.github.io/adriana-moura.github.io/assets/img/favicon.png">
+                  <img title="logo 2 mobile" class="logo logo-white img-responsive center-block" src="https://wsbarreto.github.io/adriana-moura.github.io/assets/img/favicon.png">
+               </a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+            
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item"><a class="nav-link" title="home" class='title-font menu-home' href='index.html'>Homer</a></li>
+                     <li class="nav-item"><a class="nav-link" title="sobre" class='title-font menu-sobre' href='#sobre'>Sobre</a></li>
+                     <li class="nav-item"><a class="nav-link" title="solucoes" class='title-font menu-solucoes' href='#solucoes'>Soluções</a></li>
+                     <li class="nav-item"><a class="nav-link" title="depoimentos" class='title-font menu-depoimentos' href='#depoimentos'>Depoimentos</a></li>
+                     <li class="nav-item"><a class="nav-link" title="contato" class='title-font menu-contato btn-cta' href='#contato'>Quero Conversar!</a></li>
+                  </ul>
+               </div>
+            </nav>
+         </div>
+
+
+
+
+
+         
       </div>
       <div id="menu-hamburguer" class="over over-hugeinc">
          <nav>
             <ul>
-               <li><a title="home" class='title-font menu-home' href='index.html'>Home</a></li>
+               <li><a title="home" class='title-font menu-home' href='index.html'>Homer</a></li>
                <li><a title="sobre" class='title-font menu-sobre' href='#sobre'>Sobre</a></li>
                <li><a title="solucoes" class='title-font menu-solucoes' href='#solucoes'>Soluções</a></li>
-               <li><a title="depoimentos" class='title-font menu-depoimentos' href='#depoimentos'>Depoimentos</a>
-               </li>
+               <li><a title="depoimentos" class='title-font menu-depoimentos' href='#depoimentos'>Depoimentos</a></li>
                <li><a title="contato" class='title-font menu-contato btn-cta' href='#contato'>Quero Conversar!</a></li>
             </ul>
          </nav>
@@ -965,7 +988,10 @@
                            </div>
                            <div class="col-md-4">
                               <div class="visible-xs m-t-10 visible-sm"></div>
-                              <button style="width:100%;" class="btn-enviar btn-white btn btn-lg btn-block" type="submit">Cadastrar</button>
+                              <!-- <button style="width:100%;" class="btn-enviar btn-white btn btn-lg btn-block" type="submit"> -->
+                              <button style="width:100%;" class="btn btn-primary btn-block-xs btn-big" type="submit">
+                                 Cadastrar
+                              </button>
                            </div>
                         </div>
                         <div class="mensagem row m-t-10" style="display:none;">
