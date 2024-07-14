@@ -15058,6 +15058,10 @@ button.swiper-pagination-bullet {
   overflow:hidden;
 }
 
+.div-home {
+  height:100%;
+}
+
 .section-evento {
   margin-top:-40px;
 }
@@ -15075,7 +15079,8 @@ button.swiper-pagination-bullet {
 }
 
 .section-estatisticas {
-  background-image:url('assets/img/dri-apresentacao.png');
+  /* background-image:url('assets/img/dri-apresentacao.png'); */
+  background-image:url(../assets/img/dri-apresentacao.png);
 }
 
 .text-primary {
