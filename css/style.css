@@ -15083,6 +15083,23 @@ button.swiper-pagination-bullet {
   background-image:url(../assets/img/dri-apresentacao.png);
 }
 
+.section-div-sobre {
+  background-image:url(../assets/img/dri-3.jpg);
+  z-index: 2;
+}
+
+.mentoria-individual {
+  background-image:url(../assets/img/mentoria-individual-1.png);
+}
+
+.mentoria-casal {
+  background-image:url(../assets/img/mentoria-casal-2-v.2.png);
+}
+
+.mentoria-corporativa {
+  background-image:url(../assets/img/palestra-1.png);
+}
+
 .text-primary {
   color: #F2B672;
   /* color: #F2B672; /* adriana moura */
