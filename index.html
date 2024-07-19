@@ -134,7 +134,7 @@
                   <div class="row">
                      <div class="col-lg-8 col-lg-offset-2 text-center">
                         <h1 class="wow fadeIn large bold m-b-20 text-shadow2">As pessoas não carecem de força</h1>
-                        <p data-wow-delay=".3s" class="wow fadeIn lead m-b-40 text-adriana-dark">
+                        <p id="subTituloHome" data-wow-delay=".3s" class="wow fadeIn lead m-b-40 text-adriana-dark">
                            “O sucesso nasce do querer, da determinação e persistência em se chegar a um objetivo.
                            Mesmo não atingindo o alvo, quem busca e vence obstáculos, no mínimo fará coisas admiráveis.”
                         </p>
@@ -1235,10 +1235,36 @@
          gtag('send', 'pageview', { 'page': location.pathname + location.search + location.hash }); 
          gtag('config', 'AW-981356642');
 
+         var paragraph = $('#subTituloHome');
+
+         function trocarClasse() {
+            var p = document.getElementById('subTituloHome');
+            
+            // Adicionar uma nova classe
+            p.classList.add('classe-nova');
+            
+            // Remover uma classe antiga
+            p.classList.remove('classe-antiga');
+            
+            // Substituir uma classe por outra
+            // p.classList.replace('classe-antiga', 'classe-nova');
+         }
+
          if (Modernizr.touchevents) {
            console.log("Este site está sendo acessado por um dispositivo móvel.");
          } else {
             console.log("Este site está sendo acessado por um desktop.");
+
+            var p = document.getElementById('subTituloHome');
+            
+            // Adicionar uma nova classe
+            p.classList.add('text-white');
+            
+            // Remover uma classe antiga
+            p.classList.remove('text-adriana-dark');
+            
+            // Substituir uma classe por outra
+            // p.classList.replace('classe-antiga', 'classe-nova');
          }
       </script>
       <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/d77c38eb-bb20-440b-8893-38762aca3ce8-loader.js"></script>
