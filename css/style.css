@@ -6,6 +6,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@font-face {
+  font-family: AdobeCalsonPro;
+  src: url(../assets/font/ACaslonPro-Regular.otf)
+}
+
 @media only screen and (max-width: 480px) {
   .inline.text-center-xs {
     display: inherit !important
@@ -23180,7 +23185,7 @@ input[readonly] {
 }
 
 .body-font {
-  font-family: 'Open Sans', sans-serif
+  font-family: AdobeCalsonPro, sans-serif
 }
 
 h1,
