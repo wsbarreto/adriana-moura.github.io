@@ -1,0 +1,29 @@
+name: .NET Core CI (Continuous Integration)
+
+on:
+  push:
+    branches:
+      - feature/*
+
+jobs:
+  CreatePullRequest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup GitHub CLI
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install GitHub CLI
+        run: npm install -g @octokit/rest
+
+      - name: Create pull request
+        run: |
+          branch=$(echo ${GITHUB_REF#refs/heads/})
+          gh pr create -B develop -H $branch --title "Merge $branch into develop" --body "Created automatic Pull Request by Github action."
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
