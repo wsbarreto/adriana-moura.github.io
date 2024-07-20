@@ -20,7 +20,7 @@
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800|Raleway:400,800&amp;subset=latin-ext" rel="stylesheet">
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/menu.css">
-      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+      <link rel="stylesheet" href="css/modal.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.11.7/modernizr.min.js"></script>
       <script src="https://use.fontawesome.com/d3e0186f62.js"></script>
       <script type="text/javascript">
@@ -70,7 +70,7 @@
                </div>
                <div class="col-md-8 col-sm-9">
                   <div class="flexbox principal">
-                     <a title="home" class='menu-home' href='index.html'>Homeee</a>
+                     <a title="home" class='menu-home' href='index.html'>Home</a>
                      <a title="sobre" class='menu-sobre' href='#sobre'>Sobre</a>
                      <a title="solucoes" class='menu-solucoes' href='#solucoes'>Soluções</a>
                      <a title="depoimentos" class='menu-depoimentos' href='#depoimentos'>Depoimentos</a>
@@ -80,6 +80,7 @@
             </div>
          </div>
       </header>
+
    <!-- mobile -->
       <div class=" menu-principal-v2-mobile visible-xs">
          <div class="flexbox principal">
@@ -106,13 +107,8 @@
                </div>
             </nav>
          </div>
-
-
-
-
-
-         
       </div>
+
       <div id="menu-hamburguer" class="over over-hugeinc">
          <nav>
             <ul>
@@ -124,8 +120,6 @@
             </ul>
          </nav>
       </div>
-
-
 
       <section id="home" class="text-white fullscreen d-table fillImg bg-primary section-home">
          <div class="d-table-row div-home">
@@ -158,31 +152,8 @@
          </div>
       </section>
 
-
-   <!-- script video -->
-      <script type="text/javascript">
-         RunFunctions.push(function () {
-            var video = document.querySelector('#videoTopo'); 
-            if (video) {
-               function checkLoad() {
-                  if (video.readyState === 4) { 
-                     video.style.display = 'block'; 
-                     video.style.opacity = '0';
-
-                     $("#videoTopo").animate({ 'opacity': 1 }, 3000)
-                     } 
-                  else { 
-                     setTimeout(checkLoad, 100); 
-                  }
-                  console.log("checkload");
-               }
-               checkLoad();
-            }
-         });
-      </script>
-      <div id="sobre"></div>
-
-
+      <div id="sobre">
+      </div>
 
    <!-- sobre Adriana Moura (mobile) -->
       <section id="timeline-mobile" class="visible-xs visible-sm p-t-120">
@@ -405,7 +376,6 @@
          </div>
       </section>
 
-
    <!-- beneficios -->
       <section id="estatisticas" class="text-center bg-dark p-t-90 p-b-90 text-center-xs fillImg section-estatisticas" >
          <div class="container">
@@ -476,7 +446,7 @@
                         <h2 class="subtit">Atendimento personalizado para você.</h2>
                      </div>
                      <div class="saiba">
-                        <div> Saiba Mais </div>
+                        <div id="divMentoriaIndividual">Saiba Mais</div>
                      </div>
                   </a>
                </div>
@@ -487,19 +457,18 @@
                         <h2 class="subtit">Atendimento personalizado para você e seu/sua parceiro(a).</h2>
                      </div>
                      <div class="saiba">
-                        <div> Saiba Mais </div>
+                        <div id="divMentoriaCasal">Saiba Mais</div>
                      </div>
                   </a>
                </div>
                <div data-wow-delay=".8s" class="col-sm-4 wow fadeInUp">
                   <a title="Inteligência Emocional no Trabalho"  class="item c fillImg mentoria-corporativa" data-offset="50">
                      <div class="text-shadow2 font-adriana">
-                        <!-- <h1 class="titulo bold">Inteligência Emocional no Trabalho</h1> -->
                         <h1 class="titulo bold">Mentoria para Liderança</h1>
                         <h2 class="subtit">Curso que promove inteligência emocional no dia-a-dia corporativo.</h2>
                      </div>
                      <div class="saiba">
-                        <div> Saiba Mais </div>
+                        <div id="divMentoriaCorporativa">Saiba Mais</div>
                      </div>
                   </a>
                </div>
@@ -507,8 +476,32 @@
          </div>
       </section>
 
-
-
+      <div id="divModal">           
+         <!-- Modal -->
+         <div class="modal fade" id="modal-mensagem">
+            <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                         <h4 class="modal-title">Título da mensagem</h4>
+                     </div>
+                     <div class="modal-body">
+                         <p>Conteúdo da mensagem</p>
+                     </div>
+                     <div class="modal-footer">
+                        <div class="btn">
+                           <a title="whatsapp" class="btn btn-block btn-whatsapp bold btn-lg" 
+                              href="https://api.whatsapp.com/send?1=pt_BR&phone=5511976782004&text=Olá, Adriana! Vi seu site e gostaria de mais informações sobre seus serviços."
+                              target="_blank"  rel="noopener">
+                              <i class="fa fa-whatsapp"></i>&nbsp;Whatsapp
+                           </a>
+                        </div>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+      </div>
 
    <!-- teste emocional -->
       <div class="skew section p-t-90 p-b-120 overlay-dark relative fillImg" style="z-index:1;background-image:url(assets/img/dri-4.jpg)">
@@ -524,9 +517,6 @@
             </div>
          </div>
       </div>
-
-
-
 
    <!-- formulario de contato -->
       <section id="contato" class="side-image section-contato">
@@ -557,11 +547,11 @@
                               <div class="col-md-6"> 
                                  <label class="control-label">Seu Nome</label> 
                                  <input type="text" title="nome" class="input-lg form-control" name="nome" /> 
-                                 </div>
+                              </div>
                               <div class="col-md-6"> 
                                  <label class="control-label">Email</label> 
                                  <input type="email" title="E-mail" class="input-lg form-control" name="email" /> 
-                                 </div>
+                              </div>
                            </div>
                         </div>
                         <div class="form-group">
@@ -569,7 +559,7 @@
                               <div class="col-md-6"> 
                                  <label class="control-label">Telefone</label> 
                                  <input type="text" title="telefone" class="input-lg form-control" name="telefone" /> 
-                                 </div>
+                              </div>
                               <div class="col-md-6">
                                  <label class="control-label">Como me conheceu?</label>
                                  <select title="conheceu como" class="form-control input-lg" name="conheceu">
@@ -583,18 +573,17 @@
                            </div>
                         </div>
                         <div class="form-group" id="especifique" style="display:none;"> 
-                           <label
-                              class="control-label">Especifique como me conheceu...</label> 
-                              <input type="text"
-                              class="input-lg form-control" name="especifique" /> 
-                           </div>
+                           <label class="control-label">Especifique como me conheceu...</label> 
+                              <input type="text" class="input-lg form-control" name="especifique" /> 
+                        </div>
                         <div class="form-group"> 
                            <label class="control-label">Profissão</label> 
-                           <input type="text" title="profissao" class="input-lg form-control" name="profissao" /> </div>
+                           <input type="text" title="profissao" class="input-lg form-control" name="profissao" />
+                        </div>
                         <div class="form-group"> 
                            <label class="control-label">Mensagem</label> 
                            <textarea placeholder="digite sua mensagem" class="input-lg form-control" name="mensagem" rows="3"></textarea> 
-                           </div>
+                        </div>
                      </div>
                      <div id="enviar">
                         <div class="form-group pull-left m-t-20">
@@ -609,68 +598,7 @@
                         </div>
                      </div>
                   </form>
-                  <script type="text/javascript">
-                     var validacoes = { 
-                        nome: { row: '.col-md-6', validators: { notEmpty: { message: 'Preencha este campo' } } }, 
-                        telefone: { row: '.col-md-6', validators: { notEmpty: { message: 'Preencha este campo' } } }, 
-                        conheceu: { row: '.col-md-6', validators: { notEmpty: { message: 'Escolha uma opção' } } }, 
-                        profissao: { validators: { notEmpty: { message: 'Preencha este campo' } } }, 
-                        como_conheceu: { row: '.col-sm-6', validators: { notEmpty: { message: 'Escolha uma opção' } } }, 
-                        especifique: { validators: { notEmpty: { message: 'Preencha este campo' } } }, 
-                        email: { row: '.col-md-6', validators: { notEmpty: { message: 'Preencha este campo' }, emailAddress: { message: 'Preencha este campo corretamente' } } }, 
-                        mensagem: { validators: { notEmpty: { message: 'Preencha este campo' } } }, }
 
-                     RunFunctions.push(function () { 
-                        $.get("https://ipinfo.io/json", function (response) { 
-                           $("[name='localizacao']").val(JSON.stringify(response)); 
-                        }, "jsonp");
-
-                        $("#form-contato select[name='conheceu']").on("change", function (e) { 
-                           var campoEspecifique = $("#form-contato #especifique"); 
-                           if ($(this).val() == "Outros") { 
-                              campoEspecifique.slideDown(); 
-                              $("#form-contato #especifique").find('input').focus(); 
-                           } else { 
-                              campoEspecifique.slideUp();
-                           } 
-                        }); 
-                           
-                        $('#form-contato').formValidation({ 
-                           framework: 'bootstrap', 
-                           icon: { valid: 'fa fa-check', invalid: 'fa fa-times', validating: ' ' }, 
-                           addOns: { 
-                                 reCaptcha2: { 
-                                 element: 'captchaContainer', 
-                                 language: 'pt-br', 
-                                 theme: 'light', 
-                                 siteKey: '6LdWehcUAAAAAAr0L1KCPYrqPeInFb8Zd0KKzdI_', 
-                                 timeout: 120, 
-                                 message: 'A verificação é inválida' 
-                              } 
-                           }, 
-                           fields: validacoes 
-                        }).on('success.form.fv', function (e) { e.preventDefault();
-
-                        var $form = $(e.target), fv = $(e.target).data('formValidation'); 
-                        var dados = $("#form-contato :visible, #form-contato input[name='formulario'], #form-contato #g-recaptcha-response, #form-contato input[name='depto']").serialize();
-
-                        $("#form-contato").slideUp(); 
-                        $("#form-contato").parent().find("#aguarde").slideDown();
-
-                        gtag('event', 'conversion', { 'send_to': 'AW-981356642/eBEzCKOWgNEBEOKg-dMD', 'event_category': 'form', 'event_label': 'Contato' });
-
-                        $.ajax({ url: $form.attr('action'), type: 'POST', data: dados, success: function (result) { 
-                           $("#form-contato").parent().find("#aguarde").slideUp(); 
-                           
-                           if (result == "true") { 
-                              $("#form-contato").parent().find("#sucesso").slideDown(); 
-                           } else { 
-                              $("#form-contato").parent().find("#erro").slideDown(); 
-                           } 
-                           }}); 
-                        }); 
-                     });
-                  </script>
                   <div class="clearfix"></div>
                   <div class="row">
                      <hr />
@@ -687,7 +615,9 @@
                            <a title="www"  
                               class="btn btn-block btn-whatsapp bold btn-lg" 
                               href="https://api.whatsapp.com/send?1=pt_BR&phone=5511976782004&text=Olá, Adriana! Vi seu site e gostaria de mais informações sobre seus serviços."
-                              target="_blank"  rel="noopener"><i class="fa fa-whatsapp"></i>&nbsp;Enviar Whatsapp</a>
+                              target="_blank"  rel="noopener">
+                              <i class="fa fa-whatsapp"></i>&nbsp;Enviar Whatsapp
+                           </a>
                            <!-- <p class="text-adriana-dark small no-margin">Número: (71) 9361-6316</p> -->
                         </div>
                      </div>
@@ -701,9 +631,6 @@
             </div>
          </div>
       </section>
-
-
-
 
    <!-- redes sociais -->
       <section class="bg-dark skew p-t-80 section-rede-social">
@@ -750,65 +677,6 @@
             </div>
          </div>
       </section>
-
-      <script type="text/javascript">
-         function myTemplate(json) { 
-            var imagens = json.edge_owner_to_timeline_media.edges; 
-
-            console.log('imagens: ', imagens); 
-            if (imagens.length) { 
-               $.each(imagens, function (key, item) { 
-                  if (key <= 7) { 
-                     $(".instashow").append("<div class='swiper-slide'><a title='www'  href='https://instagram.com/p/" + item.node.shortcode + "' target='_blank'><img class='img-rounded img-responsive center-block' src='" + item.node.thumbnail_src + "'/></a></div>"); 
-                  } 
-               }); 
-               var swiperInsta = new Swiper('#instagrao .swiper-container', { 
-                  pagination: { el: '#instagrao .swiper-pagination', }, 
-                  nextButton: '#instagrao .swiper-button-next-icon', 
-                  prevButton: '#instagrao .swiper-button-prev-icon', 
-                  slidesPerView: 5, 
-                  spaceBetween: 10, 
-                  breakpoints: { 
-                     620: { 
-                        slidesPerView: 1, 
-                        spaceBetween: 10, 
-                     }, 
-                     640: { 
-                        slidesPerView: 2, 
-                        spaceBetween: 10, 
-                     }, 
-                     768: { 
-                        slidesPerView: 3, 
-                        spaceBetween: 10, 
-                     }, 
-                     1024: { 
-                        slidesPerView: 3, 
-                        spaceBetween: 10, 
-                     }, 
-                     1184: { 
-                        slidesPerView: 3, 
-                        spaceBetween: 10, 
-                     }, 
-                  }, 
-               }); 
-            } else { 
-                  $("#instagrao").hide(); 
-               } 
-            }
-            RunFunctions.push(function () { 
-               $.instagramFeed({ 
-                  'username': 'adrianamouracoach', 
-                  'container': ".instashow", 
-                  'display_profile': false, 
-                  'display_biography': false, 
-                  'items': 8, 
-                  'get_raw_json': true, 
-                  'callback': myTemplate 
-               }); 
-            })
-      </script>
-
-
 
    <!-- depoimentos -->
       <div id="depoimentos" class="p-t-80 relative">
@@ -966,11 +834,7 @@
                </span>
             </div>
          </div>
-         <script
-            type="text/javascript">RunFunctions.push(function () { var swiperDepoimentos = new Swiper('#widget-depoimentos', { pagination: '#widget-depoimentos .swiper-pagination', paginationClickable: true, nextButton: '#widget-depoimentos .swiper-button-next-icon', prevButton: '#widget-depoimentos .swiper-button-prev-icon', slidesPerView: 2, spaceBetween: 60, breakpoints: { 1024: { slidesPerView: 2, }, 768: { slidesPerView: 2, }, 640: { slidesPerView: 1, }, 320: { slidesPerView: 1, } }, }); });</script>
       </div>
-
-
 
       <!-- conteudo vip -->
       <section class="p-t-80 p-b-100 bg-degrade skew section-conteudo-vip">
@@ -1007,46 +871,6 @@
                         </div>
                      </form>
                   </div>
-                  <script type="text/javascript">
-                     RunFunctions.push(function () {
-                        $("#formNewsletter").submit(function () {
-                           var dados = $(this).serialize(); 
-                           if (dados) {
-                              $("#formNewsletter .btn-enviar").html("<i class='fa fa-spin fa-spinner'></i>&nbsp;Aguarde..."); 
-                              $("#formNewsletter input, #formNewsletter button").attr('disabled', 'disabled'); 
-                              $.ajax({
-                                 type: "POST", url: urlSite + "/inc/newsletter.php", data: dados, success: function (data) {
-                                    if (data) {
-                                       switch (data) {
-                                          case "true": $("#formNewsletter .mensagem .texto").text("Obrigada por cadastrar seu email em nossa lista vip! ")
-                                             $("#formNewsletter .mensagem").slideDown(); 
-                                             $("#formNewsletter input").val(""); 
-                                             break; 
-                                          case "false": 
-                                             $("#formNewsletter .mensagem .texto").text("Ocorreu algum erro, tente novamente! "); 
-                                             $("#formNewsletter .mensagem").slideDown(); 
-                                             break; 
-                                          case "existente": 
-                                             $("#formNewsletter .mensagem .texto").text("Obrigada por cadastrar seu email em nossa lista vip! "); 
-                                             $("#formNewsletter .mensagem").slideDown(); 
-                                             $("#formNewsletter input").val(""); 
-                                             break;
-                                       }
-                                    } else { 
-                                       $("#formNewsletter .mensagem .texto").text("Ocorreu algum erro, tente novamente! "); 
-                                       $("#formNewsletter .mensagem").slideDown(); 
-                                    }
-                                 }
-                              });
-                           } else { 
-                              alert("Os campos são obrigatórios."); 
-                           }
-                           $("#formNewsletter .btn-enviar").html("Cadastrar"); 
-                           $("#formNewsletter input, #formNewsletter button").removeAttr('disabled', 'disabled'); 
-                           return false;
-                        });
-                     });
-                  </script>
                </div>
             </div>
          </div>
@@ -1098,15 +922,6 @@
                      </span> 
                   </div>
                </div>
-               <script type="text/javascript">
-                  RunFunctions.push(function () { 
-                     var swiperMidia = new Swiper('#slider-namidia.swiper-container', { 
-                        spaceBetween: 60, 
-                        nextButton: '#slider-namidia .swiper-button-next-icon', 
-                        prevButton: '#slider-namidia .swiper-button-prev-icon', 
-                     }); 
-                  });
-               </script>
             </div>
             <!-- website -->
             <div id="website" class="row hidden-xs">
@@ -1164,30 +979,6 @@
          </div>
       </section>
 
-      <script type="text/javascript">
-         RunFunctions.push(function () {
-            function updateHandler(scoreDisplay) { scoreDisplay.text(startScore.score); }
-            var controllerParallaxes = new ScrollMagic.Controller({ 
-               globalSceneOptions: { triggerHook: "onEnter", duration: "200%" } }); 
-               $(".parallaxScrollMagic").each(function () { 
-                  var offset = $(this).data("offset"); 
-                  var elemento = this.children[0]; new ScrollMagic.Scene({ triggerElement: elemento }).setTween(elemento, { y: offset + "%" }).addTo(controllerParallaxes); }); 
-                  var controller = new ScrollMagic.Controller(); 
-                  var increment = []; $(".autoincrement").each(function (e) { 
-                     var valAtual = $(this).attr("id"); 
-                     var atual = increment[valAtual] = []; 
-                     atual['sceneAutoIncrement'] = new ScrollMagic.Scene({ triggerElement: "#estatisticas", triggerHook: "onEnter", duration: "90%" }); 
-                     atual['score'] = { score: 0 }; 
-                     atual['endScore'] = $(this).data("endscore"); 
-                     atual['number'] = $(this).find(".n"); 
-                     atual['tweener'] = TweenLite.to(atual['score'], 5, { score: atual['endScore'], roundProps: "score", onUpdate: function () { console.log(atual['score'].score); 
-                     
-                     var numeroDots = atual['score'].score.toLocaleString('pt-BR'); 
-                     atual.number.text(numeroDots); } }); 
-                     atual['sceneAutoIncrement'].setTween(atual['tweener']).addTo(controller); });
-         })
-      </script>
-
       <!-- rodapé -->
       <footer class="text-center-xs  bg-clouds p-t-30 p-b-120">
          <div class="container">
@@ -1215,15 +1006,13 @@
          </div>
       </footer>
 
-
-
-
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.0/TweenMax.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
-      <script type="text/javascript" src="js/scripts.js"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QD94F7GTF3"></script>
+      <script type="text/javascript" src="js/scripts.js"></script>
+      <script type="text/javascript" src="js/modal.js"></script>
       <script type="text/javascript">
          window.dataLayer = window.dataLayer || []; 
          function gtag() { 
@@ -1234,6 +1023,243 @@
          gtag('config', 'UA-91823560-2', { 'allowAnchor': true }); 
          gtag('send', 'pageview', { 'page': location.pathname + location.search + location.hash }); 
          gtag('config', 'AW-981356642');
+
+         RunFunctions.push(function () {
+            function updateHandler(scoreDisplay) { scoreDisplay.text(startScore.score); }
+            var controllerParallaxes = new ScrollMagic.Controller({ 
+               globalSceneOptions: { triggerHook: "onEnter", duration: "200%" } }); 
+               $(".parallaxScrollMagic").each(function () { 
+                  var offset = $(this).data("offset"); 
+                  var elemento = this.children[0]; new ScrollMagic.Scene({ triggerElement: elemento }).setTween(elemento, { y: offset + "%" }).addTo(controllerParallaxes); }); 
+                  var controller = new ScrollMagic.Controller(); 
+                  var increment = []; $(".autoincrement").each(function (e) { 
+                     var valAtual = $(this).attr("id"); 
+                     var atual = increment[valAtual] = []; 
+                     atual['sceneAutoIncrement'] = new ScrollMagic.Scene({ triggerElement: "#estatisticas", triggerHook: "onEnter", duration: "90%" }); 
+                     atual['score'] = { score: 0 }; 
+                     atual['endScore'] = $(this).data("endscore"); 
+                     atual['number'] = $(this).find(".n"); 
+                     atual['tweener'] = TweenLite.to(atual['score'], 5, { score: atual['endScore'], roundProps: "score", onUpdate: function () { console.log(atual['score'].score); 
+                     
+                     var numeroDots = atual['score'].score.toLocaleString('pt-BR'); 
+                     atual.number.text(numeroDots); } }); 
+                     atual['sceneAutoIncrement'].setTween(atual['tweener']).addTo(controller); });
+         })
+
+         RunFunctions.push(function () { 
+            var swiperMidia = new Swiper('#slider-namidia.swiper-container', { 
+               spaceBetween: 60, 
+               nextButton: '#slider-namidia .swiper-button-next-icon', 
+               prevButton: '#slider-namidia .swiper-button-prev-icon', 
+            }); 
+         });
+
+         // $("#formNewsletter").submit
+         RunFunctions.push(function () {
+            $("#formNewsletter").submit(function () {
+               var dados = $(this).serialize(); 
+               if (dados) {
+                  $("#formNewsletter .btn-enviar").html("<i class='fa fa-spin fa-spinner'></i>&nbsp;Aguarde..."); 
+                  $("#formNewsletter input, #formNewsletter button").attr('disabled', 'disabled'); 
+                  $.ajax({
+                     type: "POST", url: urlSite + "/inc/newsletter.php", data: dados, success: function (data) {
+                        if (data) {
+                           switch (data) {
+                              case "true": $("#formNewsletter .mensagem .texto").text("Obrigada por cadastrar seu email em nossa lista vip! ")
+                                 $("#formNewsletter .mensagem").slideDown(); 
+                                 $("#formNewsletter input").val(""); 
+                                 break; 
+                              case "false": 
+                                 $("#formNewsletter .mensagem .texto").text("Ocorreu algum erro, tente novamente! "); 
+                                 $("#formNewsletter .mensagem").slideDown(); 
+                                 break; 
+                              case "existente": 
+                                 $("#formNewsletter .mensagem .texto").text("Obrigada por cadastrar seu email em nossa lista vip! "); 
+                                 $("#formNewsletter .mensagem").slideDown(); 
+                                 $("#formNewsletter input").val(""); 
+                                 break;
+                           }
+                        } else { 
+                           $("#formNewsletter .mensagem .texto").text("Ocorreu algum erro, tente novamente! "); 
+                           $("#formNewsletter .mensagem").slideDown(); 
+                        }
+                     }
+                  });
+               } else { 
+                  alert("Os campos são obrigatórios."); 
+               }
+               $("#formNewsletter .btn-enviar").html("Cadastrar"); 
+               $("#formNewsletter input, #formNewsletter button").removeAttr('disabled', 'disabled'); 
+               return false;
+            });
+         });
+
+         // var swiperDepoimentos = new Swiper('#widget-depoimentos'
+         RunFunctions.push(function () { 
+            var swiperDepoimentos = new Swiper('#widget-depoimentos', 
+            { 
+               pagination: '#widget-depoimentos .swiper-pagination', 
+               paginationClickable: true, 
+               nextButton: '#widget-depoimentos .swiper-button-next-icon', 
+               prevButton: '#widget-depoimentos .swiper-button-prev-icon', 
+               slidesPerView: 2, 
+               spaceBetween: 60, 
+               breakpoints: { 
+                  1024: 
+                  { 
+                     slidesPerView: 2, 
+                  }, 
+                  768: 
+                  { 
+                     slidesPerView: 2, 
+                  }, 
+                  640: 
+                  { 
+                     slidesPerView: 1, 
+                  }, 
+                  320: 
+                  { 
+                     slidesPerView: 1, 
+                  } 
+               }, 
+            }); 
+         });
+
+         // script video
+         RunFunctions.push(function () {
+            var video = document.querySelector('#videoTopo'); 
+            if (video) {
+               function checkLoad() {
+                  if (video.readyState === 4) { 
+                     video.style.display = 'block'; 
+                     video.style.opacity = '0';
+
+                     $("#videoTopo").animate({ 'opacity': 1 }, 3000)
+                     } 
+                  else { 
+                     setTimeout(checkLoad, 100); 
+                  }
+                  
+               }
+               checkLoad();
+            }
+         });
+
+         function myTemplate(json) { 
+            var imagens = json.edge_owner_to_timeline_media.edges; 
+
+            console.log('imagens: ', imagens); 
+            if (imagens.length) { 
+               $.each(imagens, function (key, item) { 
+                  if (key <= 7) { 
+                     $(".instashow").append("<div class='swiper-slide'><a title='www'  href='https://instagram.com/p/" + item.node.shortcode + "' target='_blank'><img class='img-rounded img-responsive center-block' src='" + item.node.thumbnail_src + "'/></a></div>"); 
+                  } 
+               }); 
+               var swiperInsta = new Swiper('#instagrao .swiper-container', { 
+                  pagination: { el: '#instagrao .swiper-pagination', }, 
+                  nextButton: '#instagrao .swiper-button-next-icon', 
+                  prevButton: '#instagrao .swiper-button-prev-icon', 
+                  slidesPerView: 5, 
+                  spaceBetween: 10, 
+                  breakpoints: { 
+                     620: { 
+                        slidesPerView: 1, 
+                        spaceBetween: 10, 
+                     }, 
+                     640: { 
+                        slidesPerView: 2, 
+                        spaceBetween: 10, 
+                     }, 
+                     768: { 
+                        slidesPerView: 3, 
+                        spaceBetween: 10, 
+                     }, 
+                     1024: { 
+                        slidesPerView: 3, 
+                        spaceBetween: 10, 
+                     }, 
+                     1184: { 
+                        slidesPerView: 3, 
+                        spaceBetween: 10, 
+                     }, 
+                  }, 
+               }); 
+            } else { 
+                  $("#instagrao").hide(); 
+               } 
+            }
+            RunFunctions.push(function () { 
+               $.instagramFeed({ 
+                  'username': 'adrianamouracoach', 
+                  'container': ".instashow", 
+                  'display_profile': false, 
+                  'display_biography': false, 
+                  'items': 8, 
+                  'get_raw_json': true, 
+                  'callback': myTemplate 
+               }); 
+            })
+
+            var validacoes = { 
+               nome: { row: '.col-md-6', validators: { notEmpty: { message: 'Preencha este campo' } } }, 
+               telefone: { row: '.col-md-6', validators: { notEmpty: { message: 'Preencha este campo' } } }, 
+               conheceu: { row: '.col-md-6', validators: { notEmpty: { message: 'Escolha uma opção' } } }, 
+               profissao: { validators: { notEmpty: { message: 'Preencha este campo' } } }, 
+               como_conheceu: { row: '.col-sm-6', validators: { notEmpty: { message: 'Escolha uma opção' } } }, 
+               especifique: { validators: { notEmpty: { message: 'Preencha este campo' } } }, 
+               email: { row: '.col-md-6', validators: { notEmpty: { message: 'Preencha este campo' }, emailAddress: { message: 'Preencha este campo corretamente' } } }, 
+               mensagem: { validators: { notEmpty: { message: 'Preencha este campo' } } }, }
+
+            RunFunctions.push(function () { 
+               $.get("https://ipinfo.io/json", function (response) { 
+                  $("[name='localizacao']").val(JSON.stringify(response)); 
+               }, "jsonp");
+
+               $("#form-contato select[name='conheceu']").on("change", function (e) { 
+                  var campoEspecifique = $("#form-contato #especifique"); 
+                  if ($(this).val() == "Outros") { 
+                     campoEspecifique.slideDown(); 
+                     $("#form-contato #especifique").find('input').focus(); 
+                  } else { 
+                     campoEspecifique.slideUp();
+                  } 
+               }); 
+                  
+               $('#form-contato').formValidation({ 
+                  framework: 'bootstrap', 
+                  icon: { valid: 'fa fa-check', invalid: 'fa fa-times', validating: ' ' }, 
+                  addOns: { 
+                        reCaptcha2: { 
+                        element: 'captchaContainer', 
+                        language: 'pt-br', 
+                        theme: 'light', 
+                        siteKey: '6LdWehcUAAAAAAr0L1KCPYrqPeInFb8Zd0KKzdI_', 
+                        timeout: 120, 
+                        message: 'A verificação é inválida' 
+                     } 
+                  }, 
+                  fields: validacoes 
+               }).on('success.form.fv', function (e) { e.preventDefault();
+
+               var $form = $(e.target), fv = $(e.target).data('formValidation'); 
+               var dados = $("#form-contato :visible, #form-contato input[name='formulario'], #form-contato #g-recaptcha-response, #form-contato input[name='depto']").serialize();
+
+               $("#form-contato").slideUp(); 
+               $("#form-contato").parent().find("#aguarde").slideDown();
+
+               gtag('event', 'conversion', { 'send_to': 'AW-981356642/eBEzCKOWgNEBEOKg-dMD', 'event_category': 'form', 'event_label': 'Contato' });
+
+               $.ajax({ url: $form.attr('action'), type: 'POST', data: dados, success: function (result) { 
+                  $("#form-contato").parent().find("#aguarde").slideUp(); 
+                  
+                  if (result == "true") { 
+                     $("#form-contato").parent().find("#sucesso").slideDown(); 
+                  } else { 
+                     $("#form-contato").parent().find("#erro").slideDown(); 
+                  } 
+                  }}); 
+               }); 
+            });
 
          var paragraph = $('#subTituloHome');
 

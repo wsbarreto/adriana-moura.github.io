@@ -20766,7 +20766,6 @@ var cbpAnimatedHeader = (function() {
             }
         }
         didScroll = !1;
-        console.log("scroll")
     }
 
     function scrollY() {
