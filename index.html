@@ -20,6 +20,7 @@
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800|Raleway:400,800&amp;subset=latin-ext" rel="stylesheet">
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/menu.css">
+      <link rel="stylesheet" href="css/modal.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.11.7/modernizr.min.js"></script>
       <script src="https://use.fontawesome.com/d3e0186f62.js"></script>
       <script type="text/javascript">
@@ -69,7 +70,7 @@
                </div>
                <div class="col-md-8 col-sm-9">
                   <div class="flexbox principal">
-                     <a title="home" class='menu-home' href='index.html'>Homeee</a>
+                     <a title="home" class='menu-home' href='index.html'>Home</a>
                      <a title="sobre" class='menu-sobre' href='#sobre'>Sobre</a>
                      <a title="solucoes" class='menu-solucoes' href='#solucoes'>Soluções</a>
                      <a title="depoimentos" class='menu-depoimentos' href='#depoimentos'>Depoimentos</a>
@@ -151,7 +152,8 @@
          </div>
       </section>
 
-      <div id="sobre"></div>
+      <div id="sobre">
+      </div>
 
    <!-- sobre Adriana Moura (mobile) -->
       <section id="timeline-mobile" class="visible-xs visible-sm p-t-120">
@@ -444,7 +446,7 @@
                         <h2 class="subtit">Atendimento personalizado para você.</h2>
                      </div>
                      <div class="saiba">
-                        <div> Saiba Mais </div>
+                        <div id="divMentoriaIndividual">Saiba Mais</div>
                      </div>
                   </a>
                </div>
@@ -455,25 +457,51 @@
                         <h2 class="subtit">Atendimento personalizado para você e seu/sua parceiro(a).</h2>
                      </div>
                      <div class="saiba">
-                        <div> Saiba Mais </div>
+                        <div id="divMentoriaCasal">Saiba Mais</div>
                      </div>
                   </a>
                </div>
                <div data-wow-delay=".8s" class="col-sm-4 wow fadeInUp">
                   <a title="Inteligência Emocional no Trabalho"  class="item c fillImg mentoria-corporativa" data-offset="50">
                      <div class="text-shadow2 font-adriana">
-                        <!-- <h1 class="titulo bold">Inteligência Emocional no Trabalho</h1> -->
                         <h1 class="titulo bold">Mentoria para Liderança</h1>
                         <h2 class="subtit">Curso que promove inteligência emocional no dia-a-dia corporativo.</h2>
                      </div>
                      <div class="saiba">
-                        <div> Saiba Mais </div>
+                        <div id="divMentoriaCorporativa">Saiba Mais</div>
                      </div>
                   </a>
                </div>
             </div>
          </div>
       </section>
+
+      <div id="divModal">           
+         <!-- Modal -->
+         <div class="modal fade" id="modal-mensagem">
+            <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                         <h4 class="modal-title">Título da mensagem</h4>
+                     </div>
+                     <div class="modal-body">
+                         <p>Conteúdo da mensagem</p>
+                     </div>
+                     <div class="modal-footer">
+                        <div class="btn">
+                           <a title="whatsapp" class="btn btn-block btn-whatsapp bold btn-lg" 
+                              href="https://api.whatsapp.com/send?1=pt_BR&phone=5511976782004&text=Olá, Adriana! Vi seu site e gostaria de mais informações sobre seus serviços."
+                              target="_blank"  rel="noopener">
+                              <i class="fa fa-whatsapp"></i>&nbsp;Whatsapp
+                           </a>
+                        </div>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+      </div>
 
    <!-- teste emocional -->
       <div class="skew section p-t-90 p-b-120 overlay-dark relative fillImg" style="z-index:1;background-image:url(assets/img/dri-4.jpg)">
@@ -807,6 +835,7 @@
             </div>
          </div>
       </div>
+
       <!-- conteudo vip -->
       <section class="p-t-80 p-b-100 bg-degrade skew section-conteudo-vip">
          <div class="container conteudo">
@@ -981,8 +1010,9 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
-      <script type="text/javascript" src="js/scripts.js"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QD94F7GTF3"></script>
+      <script type="text/javascript" src="js/scripts.js"></script>
+      <script type="text/javascript" src="js/modal.js"></script>
       <script type="text/javascript">
          window.dataLayer = window.dataLayer || []; 
          function gtag() { 
@@ -1109,7 +1139,7 @@
                   else { 
                      setTimeout(checkLoad, 100); 
                   }
-                  console.log("checkload");
+                  
                }
                checkLoad();
             }
