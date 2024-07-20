@@ -3,3 +3,28 @@
     background: #F2B672; /* adriana moura */;
     border-color: #F2B672; /* adriana moura */
   }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#iframeContainer {
+  width: 1024px;
+  height: 800px;
+  border: 1px solid #ccc;
+}
+iframe {
+  width: 1024px;
+  height: 800px;
+  border: none;
+}
+/* .modal-dialog-frame {
+  width: 1024px;
+  height: 800px;
+}
+.modal-content-frame {
+  width: 1060px;
+  height: 900px;
+} */

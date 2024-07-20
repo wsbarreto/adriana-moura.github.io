@@ -87,6 +87,16 @@
         
         $("#modal-mensagem").modal();
     });
+
+    $('#testeInteligencia').click(function () {
+        document.addEventListener('DOMContentLoaded', function() {
+            var iframe = document.getElementById('iframe');
+            iframe.src = 'https://zenklub.com.br/teste-inteligencia-emocional-signup/'; // Substitua pela URL do site que deseja carregar
+        });
+
+        divTitle.html("<strong>Teste de inteligência emocional</strong>");
+        $("#modal-mensagem-teste").modal();
+    });
 });
 
   
