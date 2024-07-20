@@ -1,6 +1,6 @@
  $(document).ready(function () {
     var divTitle = $('.modal-title');
-
+    var divWhatsApp = $('#divWhatsApp');
     var modalBody = $('.modal-body');
     
     console.log('2');
@@ -23,6 +23,12 @@
         conteudo += "<li><strong>Forma de pagamento: </strong>50% ato - 25% na 5ª sessão - 25% na 10ª sessão</li><strong>(Pagamento em boleto bancário ou transferência)</strong>";
         conteudo += "</ul>";
 
+        var whatsApp = '<a title="whatsapp" class="btn btn-block btn-whatsapp bold btn-lg" ';
+        whatsApp += 'href="https://api.whatsapp.com/send?1=pt_BR&phone=5511976782004&text=Olá, Adriana! Eu vi o programa de mentoria individual no seu site e gostaria de mais informações."';
+        whatsApp += 'target="_blank"  rel="noopener">';
+        whatsApp += '<i class="fa fa-whatsapp"></i>&nbsp;Whatsapp';
+
+        divWhatsApp.html(whatsApp);
         modalBody.html(conteudo);
         
         $("#modal-mensagem").modal();
@@ -44,6 +50,12 @@
         conteudo += "<li><strong>Forma de pagamento: </strong>50% ato - 25% na 5ª sessão - 25% na 10ª sessão</li><strong>(Pagamento em boleto bancário ou transferência)</strong>";
         conteudo += "</ul>";
 
+        var whatsApp = '<a title="whatsapp" class="btn btn-block btn-whatsapp bold btn-lg" ';
+        whatsApp += 'href="https://api.whatsapp.com/send?1=pt_BR&phone=5511976782004&text=Olá, Adriana! Eu vi o programa de mentoria para casal no seu site e gostaria de mais informações."';
+        whatsApp += 'target="_blank"  rel="noopener">';
+        whatsApp += '<i class="fa fa-whatsapp"></i>&nbsp;Whatsapp';
+
+        divWhatsApp.html(whatsApp);
         modalBody.html(conteudo);
         
         $("#modal-mensagem").modal();
@@ -65,6 +77,12 @@
         conteudo += "<li><strong>Forma de pagamento: </strong>50% ato - 25% na 5ª sessão - 25% na 10ª sessão</li><strong>(Pagamento em boleto bancário ou transferência)</strong>";
         conteudo += "</ul>";
 
+        var whatsApp = '<a title="whatsapp" class="btn btn-block btn-whatsapp bold btn-lg" ';
+        whatsApp += 'href="https://api.whatsapp.com/send?1=pt_BR&phone=5511976782004&text=Olá, Adriana! Eu vi o programa de mentoria para liderança no seu site e gostaria de mais informações."';
+        whatsApp += 'target="_blank"  rel="noopener">';
+        whatsApp += '<i class="fa fa-whatsapp"></i>&nbsp;Whatsapp';
+
+        divWhatsApp.html(whatsApp);
         modalBody.html(conteudo);
         
         $("#modal-mensagem").modal();
