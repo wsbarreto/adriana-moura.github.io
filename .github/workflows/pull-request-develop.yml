@@ -1,4 +1,4 @@
-name: .NET Core CI (Continuous Integration)
+name: .NET Core CI (Continuous Integration) $branch
 
 on:
   push:
