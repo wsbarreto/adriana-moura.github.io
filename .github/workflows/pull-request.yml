@@ -1,4 +1,4 @@
-name: .NET Core CI (Continuous Integration) #Definimos o nome do nosso Workflow
+name: .NET Core CI (Continuous Integration) develop
 
 on:
   push:
