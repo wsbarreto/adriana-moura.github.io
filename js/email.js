@@ -44,6 +44,7 @@ var public_key = '7rclEQHz0eQe_IYyO';
 // code fragment
 // the form id is myForm
 $('#form-contato').on('submit', function(event) {
+    console.clear();
     event.preventDefault(); // prevent reload
     var formData = new FormData(this);
     formData.append('service_id', service_id);
@@ -60,7 +61,7 @@ $('#form-contato').on('submit', function(event) {
         alert('Your mail is sent!');
     }).fail(function(error) {
         alert('Oops... ' + JSON.stringify(error));
-        console.clear();
+        
         console.log('json: ', JSON.stringify(error));
     });
 });
