@@ -28,6 +28,7 @@ document.getElementById('form-contato').addEventListener('submit', function(even
     };
     console.log('templateParams: ', templateParams);
     console.log('event: ', event);
+    console.log('this: ', this);
 
     const token = req.body['g-recaptcha-response'];
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&response=${token}`;
