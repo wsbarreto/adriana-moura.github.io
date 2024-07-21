@@ -601,17 +601,17 @@
                      <i class="fa fa-check fa-3x"></i><br>
                      <h3>Ocorreu algum erro durante o envio. Por favor, tente novamente.</h3>
                   </div>
-                  <form id="form-contato" action="" enctype="multipart/form-data" method="post">
+                  <form id="form-contato" action="/submit-form" enctype="multipart/form-data" method="post">
                      <div id="formContato">
                         <div class="form-group">
                            <div class="row">
                               <div class="col-md-6"> 
                                  <label class="control-label">Seu Nome</label> 
-                                 <input type="text" title="nome" class="input-lg form-control" name="nome" id="nome" /> 
+                                 <input type="text" title="nome" class="input-lg form-control" name="nome" id="nome" placeholder="João Smith" /> 
                               </div>
                               <div class="col-md-6"> 
                                  <label class="control-label">Email</label> 
-                                 <input type="email" title="E-mail" class="input-lg form-control" name="email" id="email" /> 
+                                 <input type="email" title="E-mail" class="input-lg form-control" name="email" id="email" placeholder="exemplo@exemplo.com" /> 
                               </div>
                            </div>
                         </div>
@@ -619,7 +619,7 @@
                            <div class="row">
                               <div class="col-md-6"> 
                                  <label class="control-label">Telefone</label> 
-                                 <input type="text" title="telefone" class="input-lg form-control" name="telefone" id="telefone" /> 
+                                 <input type="text" title="telefone" class="input-lg form-control" name="telefone" id="telefone" placeholder="(99) 99999-9999" /> 
                               </div>
                               <div class="col-md-6">
                                  <label class="control-label">Como me conheceu?</label>
@@ -639,7 +639,7 @@
                         </div>
                         <div class="form-group"> 
                            <label class="control-label">Profissão</label> 
-                           <input type="text" title="profissao" class="input-lg form-control" name="profissao" id="profissao" />
+                           <input type="text" title="profissao" class="input-lg form-control" name="profissao" id="profissao" placeholder="arquiteto" />
                         </div>
                         <div class="form-group"> 
                            <label class="control-label">Mensagem</label> 
