@@ -6,11 +6,7 @@ const SECRET_KEY = '6LdR0xQqAAAAAFWDo0Zf0HA0Zqa4ETNLxX8wEg7O';
 
 
 
-$.getJSON('../appsettings.json', function(data) {
-    console.log(data); // Acessa o conteúdo do arquivo JSON
-}).fail(function(jqXHR, textStatus, errorThrown) {
-    console.error('Erro ao carregar o arquivo JSON:', textStatus, errorThrown);
-});
+
 
 
 
@@ -21,9 +17,15 @@ $.getJSON('../appsettings.json', function(data) {
 document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
     event.preventDefault();
     
+    $.getJSON('../appsettings.json', function(data) {
+        console.log(data); // Acessa o conteúdo do arquivo JSON
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error('Erro ao carregar o arquivo JSON:', textStatus, errorThrown);
+    });
 
     let formData = new FormData(this);
     console.log('formData: ', formData);
+    console.log('resp: ', resp);
 
     let templateParams = {
         name: document.querySelector('input[name="nome"]').value,
