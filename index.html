@@ -2,6 +2,24 @@
 <html lang="pt-br">
 
    <head>
+      <!-- Google Tag Manager -->
+      <script>
+         (function(w,d,s,l,i){
+            w[l] = w[l] || [];
+            w[l].push({
+               'gtm.start': new Date().getTime(),
+               event:'gtm.js'
+            });
+         var f = d.getElementsByTagName(s)[0],
+         j = d.createElement(s),
+         dl = l != 'dataLayer'?'&l=' + l : '';
+         j.async=true;
+         j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j,f);
+         })
+         (window, document, 'script', 'dataLayer', 'GTM-533SMXKM');
+         </script>
+   <!-- End Google Tag Manager -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,13 +41,42 @@
       <link rel="stylesheet" href="css/modal.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.11.7/modernizr.min.js"></script>
       <script src="https://use.fontawesome.com/d3e0186f62.js"></script>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       <script type="text/javascript">
          var urlSite = "https://adrianamoura.com.br/"; 
          var RunFunctions = [function () { console.log("ExecutarFuncoes OK"); }];
       </script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+      <script type="text/javascript">
+         (function(){
+            emailjs.init({
+               publicKey: "7rclEQHz0eQe_IYyO", // Substitua pelo seu User ID
+            });
+         })();
+      </script>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CBMHQ1V9Y1"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){
+            dataLayer.push(arguments);
+         }
+         gtag('js', new Date());
+
+         gtag('config', 'G-CBMHQ1V9Y1');
+
+         // gtag('config', 'UA-91823560-2', { 'allowAnchor': true }); 
+         gtag('send', 'pageview', { 'page': location.pathname + location.search + location.hash }); 
+         // gtag('config', 'AW-981356642');
+      </script>
    </head>
 
    <body data-spy="scroll" data-target=".navbar" class="page-home">
+      <!-- Google Tag Manager (noscript) -->
+      <noscript>
+         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-533SMXKM" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      </noscript>
+   <!-- End Google Tag Manager (noscript) -->
       <div class="modal fade" id="modalDinamica" tabindex="-1" role="dialog" aria-labelledby="modalDinamica" aria-hidden="true">
          <div class="conteudo"></div>
       </div>
@@ -548,18 +595,17 @@
                      <i class="fa fa-check fa-3x"></i><br>
                      <h3>Ocorreu algum erro durante o envio. Por favor, tente novamente.</h3>
                   </div>
-                  <form id="form-contato" action="#"
-                     enctype="multipart/form-data" method="post">
+                  <form id="form-contato" action="submit" enctype="multipart/form-data" method="post">
                      <div id="formContato">
                         <div class="form-group">
                            <div class="row">
                               <div class="col-md-6"> 
                                  <label class="control-label">Seu Nome</label> 
-                                 <input type="text" title="nome" class="input-lg form-control" name="nome" /> 
+                                 <input type="text" title="nome" class="input-lg form-control" name="nome" id="nome" /> 
                               </div>
                               <div class="col-md-6"> 
                                  <label class="control-label">Email</label> 
-                                 <input type="email" title="E-mail" class="input-lg form-control" name="email" /> 
+                                 <input type="email" title="E-mail" class="input-lg form-control" name="email" id="email" /> 
                               </div>
                            </div>
                         </div>
@@ -567,7 +613,7 @@
                            <div class="row">
                               <div class="col-md-6"> 
                                  <label class="control-label">Telefone</label> 
-                                 <input type="text" title="telefone" class="input-lg form-control" name="telefone" /> 
+                                 <input type="text" title="telefone" class="input-lg form-control" name="telefone" id="telefone" /> 
                               </div>
                               <div class="col-md-6">
                                  <label class="control-label">Como me conheceu?</label>
@@ -587,16 +633,17 @@
                         </div>
                         <div class="form-group"> 
                            <label class="control-label">Profissão</label> 
-                           <input type="text" title="profissao" class="input-lg form-control" name="profissao" />
+                           <input type="text" title="profissao" class="input-lg form-control" name="profissao" id="profissao" />
                         </div>
                         <div class="form-group"> 
                            <label class="control-label">Mensagem</label> 
-                           <textarea placeholder="digite sua mensagem" class="input-lg form-control" name="mensagem" rows="3"></textarea> 
+                           <textarea placeholder="digite sua mensagem" class="input-lg form-control" name="mensagem" id="mensagem" rows="3"></textarea> 
                         </div>
                      </div>
                      <div id="enviar">
                         <div class="form-group pull-left m-t-20">
                            <div id="captchaContainer" class="btn-block-xs text-center pull-right"></div>
+                           <div class="g-recaptcha" data-sitekey="6LdR0xQqAAAAALdB2Vygl0QAswY1uC40pwB25RZj"></div>
                         </div>
                         <div class="pull-right m-t-20 btn-block-xs text-center "> 
                            <input type="hidden" name="formulario" value="form-contato" /> 
@@ -1021,18 +1068,9 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QD94F7GTF3"></script>
       <script type="text/javascript" src="js/scripts.js"></script>
+      <script type="text/javascript" src="js/email.js"></script>
       <script type="text/javascript" src="js/modal.js"></script>
       <script type="text/javascript">
-         window.dataLayer = window.dataLayer || []; 
-         function gtag() { 
-            dataLayer.push(arguments); 
-         }
-         gtag('js', new Date()); 
-         gtag('config', 'G-QD94F7GTF3'); 
-         gtag('config', 'UA-91823560-2', { 'allowAnchor': true }); 
-         gtag('send', 'pageview', { 'page': location.pathname + location.search + location.hash }); 
-         gtag('config', 'AW-981356642');
-
          RunFunctions.push(function () {
             function updateHandler(scoreDisplay) { scoreDisplay.text(startScore.score); }
             var controllerParallaxes = new ScrollMagic.Controller({ 
@@ -1219,6 +1257,7 @@
                email: { row: '.col-md-6', validators: { notEmpty: { message: 'Preencha este campo' }, emailAddress: { message: 'Preencha este campo corretamente' } } }, 
                mensagem: { validators: { notEmpty: { message: 'Preencha este campo' } } }, }
 
+            // reCaptcha
             RunFunctions.push(function () { 
                $.get("https://ipinfo.io/json", function (response) { 
                   $("[name='localizacao']").val(JSON.stringify(response)); 
@@ -1242,7 +1281,7 @@
                         element: 'captchaContainer', 
                         language: 'pt-br', 
                         theme: 'light', 
-                        siteKey: '6LdWehcUAAAAAAr0L1KCPYrqPeInFb8Zd0KKzdI_', 
+                        siteKey: '6LfRzRQqAAAAAFqJ7XccTn7yrKZ8eTH1W9yDKBA7', 
                         timeout: 120, 
                         message: 'A verificação é inválida' 
                      } 
@@ -1256,7 +1295,7 @@
                $("#form-contato").slideUp(); 
                $("#form-contato").parent().find("#aguarde").slideDown();
 
-               gtag('event', 'conversion', { 'send_to': 'AW-981356642/eBEzCKOWgNEBEOKg-dMD', 'event_category': 'form', 'event_label': 'Contato' });
+               gtag('event', 'conversion', { 'send_to': '6LfRzRQqAAAAAFqJ7XccTn7yrKZ8eTH1W9yDKBA7', 'event_category': 'form', 'event_label': 'Contato' });
 
                $.ajax({ url: $form.attr('action'), type: 'POST', data: dados, success: function (result) { 
                   $("#form-contato").parent().find("#aguarde").slideUp(); 
