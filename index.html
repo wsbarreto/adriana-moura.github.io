@@ -59,9 +59,10 @@
          (function(){
                emailjs.init("7rclEQHz0eQe_IYyO"); // Substitua YOUR_USER_ID pelo seu user ID do EmailJS
          })();
-
+         console.clear();
          document.getElementById('form-contato').addEventListener('submit', function(event) {
                event.preventDefault();
+               console.log('this: ', this);
                // Estes IDs de template e service devem corresponder ao que você configurou no EmailJS
                emailjs.sendForm('service_8chfn3t', 'template_4i2vrwc', this)
                   .then(function(response) {
