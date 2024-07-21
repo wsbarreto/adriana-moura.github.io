@@ -12,6 +12,7 @@ document.getElementById('form-contato').addEventListener('submit', function(even
         message: document.querySelector('textarea[name="mensagem"]').value,
     };
     console.log('templateParams: ', templateParams);
+    console.log('event: ', event);
 
     const token = req.body['g-recaptcha-response'];
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&response=${token}`;
