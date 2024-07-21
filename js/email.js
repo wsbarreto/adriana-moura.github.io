@@ -37,31 +37,44 @@
 //     });
 // });
 
-var service_id = 'service_8chfn3t';
-var template_id = 'template_4i2vrwc';
-var public_key = '7rclEQHz0eQe_IYyO';
+// var service_id = 'service_8chfn3t';
+// var template_id = 'template_4i2vrwc';
+// var public_key = '7rclEQHz0eQe_IYyO';
 
-// code fragment
-// the form id is myForm
-$('#form-contato').on('submit', function(event) {
-    console.clear();
-    event.preventDefault(); // prevent reload
-    var formData = new FormData(this);
-    formData.append('service_id', service_id);
-    formData.append('template_id', template_id);
-    formData.append('user_id', public_key);
-    console.log('this: ', formData);
+// // code fragment
+// // the form id is myForm
+// $('#form-contato').on('submit', function(event) {
+//     console.clear();
+//     event.preventDefault(); // prevent reload
+//     var formData = new FormData(this);
+//     formData.append('service_id', service_id);
+//     formData.append('template_id', template_id);
+//     formData.append('user_id', public_key);
+//     console.log('this: ', formData);
  
-    $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
-        type: 'POST',
-        data: formData,
-        contentType: false, // auto-detection
-        processData: false // no need to parse formData to string
-    }).done(function() {
-        alert('Your mail is sent!');
-    }).fail(function(error) {
-        alert('Oops... ' + JSON.stringify(error));
+//     $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
+//         type: 'POST',
+//         data: formData,
+//         contentType: false, // auto-detection
+//         processData: false // no need to parse formData to string
+//     }).done(function() {
+//         alert('Your mail is sent!');
+//     }).fail(function(error) {
+//         alert('Oops... ' + JSON.stringify(error));
         
-        console.log('json: ', JSON.stringify(error));
-    });
+//         console.log('json: ', JSON.stringify(error));
+//     });
+// });
+
+console.clear();
+document.getElementById('form-contato').addEventListener('submit', function(event) {
+    event.preventDefault();
+    console.log('this: ', this);
+    // Estes IDs de template e service devem corresponder ao que você configurou no EmailJS
+    emailjs.sendForm('service_8chfn3t', 'template_4i2vrwc', this)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+            console.log('FAILED...', error);
+        });
 });
