@@ -2,10 +2,13 @@ const express = require('express');
 const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
 const app = express();
+console.log('wii: ');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+console.log('wii: ');
 
 const SECRET_KEY = '6LdR0xQqAAAAAFWDo0Zf0HA0Zqa4ETNLxX8wEg7O'; // Substitua YOUR_SECRET_KEY pela sua chave secreta do reCAPTCHA
+console.log('wii: ');
 
 app.post('/submit-form', (req, res) => {
     console.log('req: ', req);
@@ -19,14 +22,17 @@ app.post('/submit-form', (req, res) => {
             console.error('data: ', data);
             if (data.success) {
                 // O reCAPTCHA foi verificado com sucesso
+                alert('reCAPTCHA verificado com sucesso');
                 res.send('reCAPTCHA verificado com sucesso');
             } else {
                 // O reCAPTCHA falhou
+                alert('Falha na verificação do reCAPTCHA');
                 res.status(400).send('Falha na verificação do reCAPTCHA');
             }
         })
         .catch(error => {
             console.error('error: ', error);
+            alert(JSON.stringify(error));
             res.status(500).send('Erro ao verificar o reCAPTCHA');
         });
 });
