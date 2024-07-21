@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const SECRET_KEY = '6LdR0xQqAAAAAFWDo0Zf0HA0Zqa4ETNLxX8wEg7O'; // Substitua YOUR_SECRET_KEY pela sua chave secreta do reCAPTCHA
 
 app.post('/submit-form', (req, res) => {
+    console.log('req: ', req);
     const token = req.body['g-recaptcha-response'];
     console.log('token: ', token);
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&response=${token}`;
