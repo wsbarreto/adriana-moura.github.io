@@ -1,6 +1,7 @@
 const SERVICE_ID = 'service_8chfn3t';
 const TEMPLATE_ID = 'template_4i2vrwc';
 const PUBLICK_KEY = '7rclEQHz0eQe_IYyO';
+const SECRET_KEY = '6LdR0xQqAAAAAFWDo0Zf0HA0Zqa4ETNLxX8wEg7O';
 
 document.getElementById('form-contato').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -11,6 +12,26 @@ document.getElementById('form-contato').addEventListener('submit', function(even
         message: document.querySelector('textarea[name="mensagem"]').value,
     };
     console.log('templateParams: ', templateParams);
+
+    const token = req.body['g-recaptcha-response'];
+    const url = `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&response=${token}`;
+
+    $.ajax({
+        url: url, // URL da API
+        type: 'POST', // Método HTTP
+        contentType: 'application/json', // Tipo de conteúdo enviado
+        dataType: 'json', // Tipo de dado esperado
+        success: function(data) {
+            console.log('SUCCESS! ', data);
+            console.log(data); // Processa os dados da API
+        },
+        error: function(error) {
+            console.log('error! ', error);
+            console.error('There has been a problem with your AJAX operation:', error);
+        }
+    });
+    
+
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
         .then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
