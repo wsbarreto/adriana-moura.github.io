@@ -1,49 +1,33 @@
-const express = require('express');
-const fetch = require('node-fetch');
-const bodyParser = require('body-parser');
-const app = express();
-console.log('wii: ');
+const SERVICE_ID = 'service_8chfn3t';
+const TEMPLATE_ID = 'template_4i2vrwc';
+const PUBLICK_KEY = '7rclEQHz0eQe_IYyO';
 
-app.use(bodyParser.urlencoded({ extended: true }));
-console.log('wii: ');
-
-const SECRET_KEY = '6LdR0xQqAAAAAFWDo0Zf0HA0Zqa4ETNLxX8wEg7O'; // Substitua YOUR_SECRET_KEY pela sua chave secreta do reCAPTCHA
-console.log('wii: ');
-
-app.post('/submit-form', (req, res) => {
-    console.log('req: ', req);
-    const token = req.body['g-recaptcha-response'];
-    console.log('token: ', token);
-    const url = `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&response=${token}`;
-
-    fetch(url, { method: 'POST' })
-        .then(response => response.json())
-        .then(data => {
-            console.error('data: ', data);
-            if (data.success) {
-                // O reCAPTCHA foi verificado com sucesso
-                alert('reCAPTCHA verificado com sucesso');
-                res.send('reCAPTCHA verificado com sucesso');
-            } else {
-                // O reCAPTCHA falhou
-                alert('Falha na verificação do reCAPTCHA');
-                res.status(400).send('Falha na verificação do reCAPTCHA');
-            }
-        })
-        .catch(error => {
-            console.error('error: ', error);
-            alert(JSON.stringify(error));
-            res.status(500).send('Erro ao verificar o reCAPTCHA');
+document.getElementById('form-contato').addEventListener('submit', function(event) {
+    event.preventDefault();
+    console.clear();
+    var templateParams = {
+        name: document.querySelector('input[name="nome"]').value,
+        email: document.querySelector('input[name="email"]').value,
+        message: document.querySelector('textarea[name="mensagem"]').value,
+    };
+    console.log('templateParams: ', templateParams);
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('E-mail enviado com sucesso!');
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert('Falha ao enviar e-mail.');
+        });
+    
+    // Estes IDs de template e service devem corresponder ao que você configurou no EmailJS
+    emailjs.sendForm('service_8chfn3t', 'template_4i2vrwc', this)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+            console.log('FAILED...', error);
         });
 });
-
-app.listen(3000, () => {
-    console.log('Servidor iniciado na porta 3000');
-});
-
-
-
-
 
 
 
@@ -116,9 +100,7 @@ app.listen(3000, () => {
 // //     });
 // // });
 
-// // var service_id = 'service_8chfn3t';
-// // var template_id = 'template_4i2vrwc';
-// // var public_key = '7rclEQHz0eQe_IYyO';
+
 
 // // // code fragment
 // // // the form id is myForm
