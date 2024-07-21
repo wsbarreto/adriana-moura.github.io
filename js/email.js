@@ -45,11 +45,11 @@ var public_key = '7rclEQHz0eQe_IYyO';
 // the form id is myForm
 $('#form-contato').on('submit', function(event) {
     event.preventDefault(); // prevent reload
-    console.log('this: ', this);
     var formData = new FormData(this);
     formData.append('service_id', service_id);
     formData.append('template_id', template_id);
     formData.append('user_id', public_key);
+    console.log('this: ', formData);
  
     $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
         type: 'POST',
@@ -60,5 +60,7 @@ $('#form-contato').on('submit', function(event) {
         alert('Your mail is sent!');
     }).fail(function(error) {
         alert('Oops... ' + JSON.stringify(error));
+        console.clear();
+        console.log('json: ', JSON.stringify(error));
     });
 });
