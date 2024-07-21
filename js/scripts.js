@@ -15889,7 +15889,8 @@ function(a) {
                     d._addCaptcha(b, c)
                 }, 3e3)
             };
-            var f = "//www.google.com/recaptcha/api.js?onload=reCaptchaLoaded&render=explicit" + (c.language ? "&hl=" + c.language : "");
+            var f = "www.google.com/recaptcha/api.js?onload=reCaptchaLoaded&render=explicit" + (c.language ? "&hl=" + c.language : "");
+            console.log('recaptcha: ', f);
             if (0 === a("body").find('script[src="' + f + '"]').length) {
                 var g = document.createElement("script");
                 g.type = "text/javascript", g.async = !0, g.defer = !0, g.src = f, document.getElementsByTagName("body")[0].appendChild(g)
