@@ -21,7 +21,11 @@ $.getJSON('../appsettings.json', function(data) {
 document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
     event.preventDefault();
     
-    var templateParams = {
+
+    let formData = new FormData(this);
+    console.log('formData: ', formData);
+
+    let templateParams = {
         name: document.querySelector('input[name="nome"]').value,
         email: document.querySelector('input[name="email"]').value,
         message: document.querySelector('textarea[name="mensagem"]').value,
