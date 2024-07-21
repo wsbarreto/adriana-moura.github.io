@@ -3,9 +3,24 @@ const TEMPLATE_ID = 'template_4i2vrwc';
 const PUBLICK_KEY = '7rclEQHz0eQe_IYyO';
 const SECRET_KEY = '6LdR0xQqAAAAAFWDo0Zf0HA0Zqa4ETNLxX8wEg7O';
 
-document.getElementById('form-contato').addEventListener('submit', function(event) {
+
+
+
+$.getJSON('../appsettings.json', function(data) {
+    console.log(data); // Acessa o conteúdo do arquivo JSON
+}).fail(function(jqXHR, textStatus, errorThrown) {
+    console.error('Erro ao carregar o arquivo JSON:', textStatus, errorThrown);
+});
+
+
+
+
+
+
+
+document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
     event.preventDefault();
-    console.clear();
+    
     var templateParams = {
         name: document.querySelector('input[name="nome"]').value,
         email: document.querySelector('input[name="email"]').value,
