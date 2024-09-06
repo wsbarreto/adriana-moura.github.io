@@ -1,22 +1,26 @@
 $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json', function(data) {
     console.log('data: ', data); // Acessa o conteúdo do arquivo JSON
 
-    // Inicialize o EmailJS com seu User ID
-    (function(){
-        emailjs.init({
-        publicKey: data.PUBLICK_KEY,
+    // code fragment
+    // the form id is myForm
+    $('#form-contato').on('submit', function(event) {
+        event.preventDefault(); // prevent reload
+        
+        var formData = new FormData(this);
+        formData.append('service_id', data.SERVICE_ID);
+        formData.append('template_id', data.TEMPLATE_ID);
+        formData.append('user_id', data.PUBLICK_KEY);
+    
+        $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
+            type: 'POST',
+            data: formData,
+            contentType: false, // auto-detection
+            processData: false // no need to parse formData to string
+        }).done(function() {
+            alert('Your mail is sent!');
+        }).fail(function(error) {
+            alert('Oops... ' + JSON.stringify(error));
         });
-    })();
-
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        // these IDs from the previous steps
-        emailjs.sendForm(data.SERVICE_ID, data.TEMPLATE_ID, this)
-            .then(() => {
-                console.log('SUCCESS!');
-            }, (error) => {
-                console.log('FAILED...', error);
-            });
     });
 }).fail(function(jqXHR, textStatus, errorThrown) {
     console.error('Erro ao carregar o arquivo JSON: ', textStatus, errorThrown);
