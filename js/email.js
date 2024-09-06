@@ -3,14 +3,25 @@ const TEMPLATE_ID = 'template_4i2vrwc';
 const PUBLICK_KEY = '7rclEQHz0eQe_IYyO';
 const SECRET_KEY = '6LdR0xQqAAAAAFWDo0Zf0HA0Zqa4ETNLxX8wEg7O';
 
+$.getJSON('../appsettings.json', function(data) {
+    console.log('data: ', data); // Acessa o conteúdo do arquivo JSON
+}).fail(function(jqXHR, textStatus, errorThrown) {
+    console.error('Erro ao carregar o arquivo JSON: ', textStatus, errorThrown);
+});
+
+// Inicialize o EmailJS com seu User ID
+(function(){
+    emailjs.init({
+    publicKey: PUBLICK_KEY,
+    });
+})();
+
 document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
     event.preventDefault();
-    
-    $.getJSON('../appsettings.json', function(data) {
-        console.log('data: ', data); // Acessa o conteúdo do arquivo JSON
-    }).fail(function(jqXHR, textStatus, errorThrown) {
-        console.error('Erro ao carregar o arquivo JSON:', textStatus, errorThrown);
-    });
+
+    const corpo = this;
+    alert('token: ', corpo);
+    console.log('this: ', this);
 
     let formData = new FormData(this);
     console.log('formData: ', formData);
@@ -22,11 +33,10 @@ document.getElementById('form-contato').addEventListener('submit', function(even
         email: document.querySelector('input[name="email"]').value,
         message: document.querySelector('textarea[name="mensagem"]').value,
     };
-    console.log('templateParams: ', templateParams);
-    console.log('event: ', event);
-    console.log('this: ', this);
 
-    const token = req.body['g-recaptcha-response'];
+    console.log('templateParams: ', templateParams);    
+
+    // const token = req.body['g-recaptcha-response'];
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&response=${token}`;
 
     $.ajax({
@@ -44,7 +54,6 @@ document.getElementById('form-contato').addEventListener('submit', function(even
         }
     });
     
-
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
         .then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
