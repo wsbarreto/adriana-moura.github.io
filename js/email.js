@@ -1,75 +1,71 @@
-const SERVICE_ID = 'service_8chfn3t';
-const TEMPLATE_ID = 'template_4i2vrwc';
-const PUBLICK_KEY = '7rclEQHz0eQe_IYyO';
-const SECRET_KEY = '6LdR0xQqAAAAAFWDo0Zf0HA0Zqa4ETNLxX8wEg7O';
-
 $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json', function(data) {
     console.log('data: ', data); // Acessa o conteúdo do arquivo JSON
+
+    // Inicialize o EmailJS com seu User ID
+    (function(){
+        emailjs.init({
+        publicKey: data.PUBLICK_KEY,
+        });
+    })();
+
+    document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
+        event.preventDefault();
+
+        const form = $(this);
+        let g_recaptcha = $('.g-recaptcha');
+
+        console.log('this: ', this);
+        console.log('form: ', form);
+        console.log('g_recaptcha: ', g_recaptcha);
+
+        let formData = new FormData(this);
+        console.log('formData: ', formData);
+        console.log('event: ', event);
+
+        let templateParams = {
+            name: document.querySelector('input[name="nome"]').value,
+            email: document.querySelector('input[name="email"]').value,
+            message: document.querySelector('textarea[name="mensagem"]').value,
+        };  
+
+        // const token = req.body['g-recaptcha-response'];
+        const url = `https://www.google.com/recaptcha/api/siteverify?secret=${data.SECRET_KEY}&response=${token}`;
+
+        $.ajax({
+            url: url, // URL da API
+            type: 'POST', // Método HTTP
+            contentType: 'application/json', // Tipo de conteúdo enviado
+            dataType: 'json', // Tipo de dado esperado
+            success: function(response) {
+                console.log('SUCCESS! ', response);
+                console.log(response); // Processa os dados da API
+            },
+            error: function(error) {
+                console.log('error! ', error);
+                console.error('There has been a problem with your AJAX operation:', error);
+            }
+        });
+        
+        emailjs.send(data.SERVICE_ID, data.TEMPLATE_ID, templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('E-mail enviado com sucesso!');
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('Falha ao enviar e-mail.');
+            });
+        
+        // Estes IDs de template e service devem corresponder ao que você configurou no EmailJS
+        emailjs.sendForm(data.SERVICE_ID, data.TEMPLATE_ID, this)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+            }, function(error) {
+                console.log('FAILED...', error);
+            });
+    });
 }).fail(function(jqXHR, textStatus, errorThrown) {
     console.error('Erro ao carregar o arquivo JSON: ', textStatus, errorThrown);
 });
-
-// Inicialize o EmailJS com seu User ID
-(function(){
-    emailjs.init({
-    publicKey: PUBLICK_KEY,
-    });
-})();
-
-document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
-    event.preventDefault();
-
-    const corpo = this;
-    alert('token: ', corpo);
-    console.log('this: ', this);
-
-    let formData = new FormData(this);
-    console.log('formData: ', formData);
-    console.log('event: ', event);
-
-    let templateParams = {
-        name: document.querySelector('input[name="nome"]').value,
-        email: document.querySelector('input[name="email"]').value,
-        message: document.querySelector('textarea[name="mensagem"]').value,
-    };  
-
-    // const token = req.body['g-recaptcha-response'];
-    const url = `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&response=${token}`;
-
-    $.ajax({
-        url: url, // URL da API
-        type: 'POST', // Método HTTP
-        contentType: 'application/json', // Tipo de conteúdo enviado
-        dataType: 'json', // Tipo de dado esperado
-        success: function(data) {
-            console.log('SUCCESS! ', data);
-            console.log(data); // Processa os dados da API
-        },
-        error: function(error) {
-            console.log('error! ', error);
-            console.error('There has been a problem with your AJAX operation:', error);
-        }
-    });
-    
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            alert('E-mail enviado com sucesso!');
-        }, function(error) {
-            console.log('FAILED...', error);
-            alert('Falha ao enviar e-mail.');
-        });
-    
-    // Estes IDs de template e service devem corresponder ao que você configurou no EmailJS
-    emailjs.sendForm('service_8chfn3t', 'template_4i2vrwc', this)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-        }, function(error) {
-            console.log('FAILED...', error);
-        });
-});
-
-
 
 
 
