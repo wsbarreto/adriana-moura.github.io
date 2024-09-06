@@ -21,7 +21,7 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
         }).done(function() {
             alert('Your mail is sent!');
         }).fail(function(error) {
-            alert('Oops... ' + JSON.stringify(error));
+            console.error('Oops... ', error);
         });
     });
 }).fail(function(jqXHR, textStatus, errorThrown) {
