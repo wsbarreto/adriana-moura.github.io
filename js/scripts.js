@@ -15889,11 +15889,12 @@ function(a) {
                     d._addCaptcha(b, c)
                 }, 3e3)
             };
-            var f = "www.google.com/recaptcha/api.js?onload=reCaptchaLoaded&render=explicit" + (c.language ? "&hl=" + c.language : "");
-            console.log('recaptcha: ', f);
-            if (0 === a("body").find('script[src="' + f + '"]').length) {
+
+            var urlRecaptcha = "www.google.com/recaptcha/api.js?onload=reCaptchaLoaded&render=explicit" + (c.language ? "&hl=" + c.language : "");
+            
+            if (0 === a("body").find('script[src="' + urlRecaptcha + '"]').length) {
                 var g = document.createElement("script");
-                g.type = "text/javascript", g.async = !0, g.defer = !0, g.src = f, document.getElementsByTagName("body")[0].appendChild(g)
+                g.type = "text/javascript", g.async = !0, g.defer = !0, g.src = urlRecaptcha, document.getElementsByTagName("body")[0].appendChild(g)
             }
         },
         _addCaptcha: function(a, b) {
@@ -20603,7 +20604,7 @@ $(document).ready(function() {
         html: !0,
         trigger: 'hover'
     });
-    console.log("V1");
+    
     $(".destaque a, .destaque a").mouseover(function() {
         $(this).find(".txt").stop().animate({
             borderWidth: 12
@@ -20773,7 +20774,6 @@ var cbpAnimatedHeader = (function() {
         return window.pageYOffset || docElem.scrollTop
     }
     if (!header.hasClass('estatica')) {
-        console.log("verifica barra");
         init();
         scrollPage()
     }
