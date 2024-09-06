@@ -1,5 +1,5 @@
 $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json', function(data) {
-    // code fragment
+    emailjs.init(data.PUBLICK_KEY); // Substitua com sua chave pública
     // the form id is myForm
     document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
         event.preventDefault(); // prevent reload
