@@ -11,6 +11,8 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
         formData.append('template_id', data.TEMPLATE_ID);
         formData.append('user_id', data.PUBLICK_KEY);
     
+        console.log('formData: ', formData);
+
         $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
             type: 'POST',
             data: formData,
