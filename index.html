@@ -1295,7 +1295,7 @@
 
                $.ajax({ url: $form.attr('action'), type: 'POST', data: dados, success: function (result) { 
                   $("#form-contato").parent().find("#aguarde").slideUp(); 
-                  
+                  console.log('result: ', result);
                   if (result == "true") { 
                      $("#form-contato").parent().find("#sucesso").slideDown(); 
                   } else { 

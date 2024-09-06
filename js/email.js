@@ -18,18 +18,12 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
             profissao: document.querySelector('input[name="profissao"]').value
         };
 
-        let body_mensagem = '<div>';
-    	body_mensagem += '<p><span>Nome: </span>' + template.nome + '</p>';
-        body_mensagem += '<p><span>E-mail: </span>' + template.email + '</p>';
-        body_mensagem += '<p><span>Telefone: </span>' + template.telefone + '</p>';
-        body_mensagem += '<p><span>Profissão: </span>' + template.profissao + '</p>';
-		body_mensagem += '<p><span>Mensagem: </span>' + template.mensagem + '</p>';
-        body_mensagem += '</div>';
-
         emailjs.send(data.SERVICE_ID,data.TEMPLATE_ID,{
             nome: template.nome,
-            email: template.email,
-            mensagem: body_mensagem
+            email_de: template.email,
+            telefone_de: template.telefone,
+            profissao_de: template.profissao,
+            mensagem: template.mensagem
             });
     });
 }).fail(function(jqXHR, textStatus, errorThrown) {
