@@ -3,7 +3,7 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
 
     // code fragment
     // the form id is myForm
-    $('#form-contato').on('submit', function(event) {
+    $('form-contato').on('submit', function(event) {
         event.preventDefault(); // prevent reload
         
         var formData = new FormData(this);
