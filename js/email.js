@@ -20,6 +20,7 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
         console.log('g_recaptcha: ', g_recaptcha);
         console.log('iframe: ', iframe);
         console.log('event: ', event);
+        console.log('will: ');
 
         let templateParams = {
             name: document.querySelector('input[name="nome"]').value,

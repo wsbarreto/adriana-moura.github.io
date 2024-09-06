@@ -204,7 +204,8 @@
         var b = "length" in a && a.length,
             c = m.type(a);
         return "function" === c || m.isWindow(a) ? !1 : 1 === a.nodeType && b ? !0 : "array" === c || 0 === b || "number" == typeof b && b > 0 && b - 1 in a
-    }
+    };
+    
     var s = function(a) {
         var b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u = "sizzle" + 1 * new Date,
             v = a.document,
@@ -20312,6 +20313,7 @@ function(a, b) {
         }
     }), d
 });
+
 var triggerBttn = $('#menu-hamburguer-botao'),
     overlay = $('#menu-hamburguer.over'),
     closeBttn = overlay.find('button.over-close');
@@ -20330,6 +20332,7 @@ function toggleOverlay() {
         triggerBttn.addClass('is-active');
         overlay.removeClass('open');
         overlay.addClass('close');
+
         var onEndTransitionFn = function(ev) {
             if (support.transitions) {
                 if (ev.propertyName !== 'visibility') return;
@@ -20338,6 +20341,7 @@ function toggleOverlay() {
             overlay.removeClass('close');
             triggerBttn.removeClass('is-active')
         };
+
         if (support.transitions) {
             overlay.addEventListener(transEndEventName, onEndTransitionFn)
         } else {
@@ -20348,14 +20352,17 @@ function toggleOverlay() {
         triggerBttn.addClass('is-active')
     }
 }
+
 $("#menu-hamburguer a").click(function(e) {
     toggleOverlay()
 });
+
 triggerBttn.click(function(e) {
     e.preventDefault();
     $(this).blur();
     toggleOverlay()
 });
+
 closeBttn.click(function(e) {
     e.preventDefault();
     $(this).blur();
@@ -20367,6 +20374,7 @@ function offset(elemento) {
     var tamanhoH = $(elemento).height() - (offset);
     $(elemento).css('margin-top', tamanhoH)
 }
+
 var wow = new WOW({
     boxClass: 'wow',
     animateClass: 'animated',
@@ -20374,7 +20382,9 @@ var wow = new WOW({
     mobile: !1,
     live: !0
 });
+
 wow.init();
+
 $(window).on("load resize", function() {
     offset(".js-offset")
 });
@@ -20383,6 +20393,7 @@ function CarregarPostsV1(url, container, library) {
     library.btnLoad = $(container).find('.acao-load-more');
     library.html = $(container).find('.resultados');
     blockUI(library.html.parent(), !1, "", library.bgColor);
+
     $.ajax({
         type: 'POST',
         url: url,
@@ -20412,9 +20423,11 @@ function CarregarPostsV1(url, container, library) {
             } else {
                 console.error("Ocorreu algum erro")
             }
+
             unblockUI(library.html.parent());
             library.btnLoad.html(library.btnLoad.data('txt'));
             console.log('library: ', library);
+
             if (library.page >= library.totalPages - 1) {
                 library.btnLoad.attr("disabled", !0).unbind().removeAttr('href')
             } else {
@@ -20424,6 +20437,7 @@ function CarregarPostsV1(url, container, library) {
     }).fail(function(reason) {
         console.log('reason: ', reason)
     });
+
     library.btnLoad.unbind().click(function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -20431,7 +20445,7 @@ function CarregarPostsV1(url, container, library) {
         $(this).prop("disabled", !0).html("<i class='fa fa-spin fa-spinner fa-lg'>");
         library.page++;
         CarregarPostsV1(url, container, library)
-    })
+    });
 }
 
 function CarregarPostsV2(url, container, library) {
@@ -20440,6 +20454,7 @@ function CarregarPostsV2(url, container, library) {
     library.html = $(container).find('.resultados');
     library.containerIsotope = $(container).find('.resultados');
     blockUI(library.html.parent(), !1, "", library.bgColor);
+
     $.ajax({
         type: 'POST',
         url: url,
@@ -20453,6 +20468,7 @@ function CarregarPostsV2(url, container, library) {
         success: function(data) {
             val = $(data.html);
             library.totalPages = data.paginas;
+
             if (data.status == 'ok') {
                 if (!library.html.hasClass('isotope')) {
                     console.log('nao tem isotope, inicia');
@@ -20462,22 +20478,28 @@ function CarregarPostsV2(url, container, library) {
                     })
                 }
                 $(container).show();
+
                 library.containerIsotope.isotope('remove', library.containerIsotope.isotope('getItemElements'));
-                library.containerIsotope.isotope('insert', val).isotope('layout')
+                library.containerIsotope.isotope('insert', val).isotope('layout');
             } else if (data.status == "zero") {
                 library.html.append('<div class="col-md-6"><div class="b-2 b-silver text-center bg-white padding-20 b-radius-5"><h3 class="no-margin">Nenhuma postagem encontrada.</h3></div></div>')
             } else {
                 console.error("Ocorreu algum erro")
             }
+
             unblockUI(library.html.parent());
+
             library.btnAntigas.html(library.btnAntigas.data('txt'));
             library.btnRecentes.html(library.btnRecentes.data('txt'));
+
             console.log('library: ', library);
+
             if (library.page <= 0) {
                 library.btnRecentes.attr("disabled", !0).unbind().removeAttr('href')
             } else {
                 library.btnRecentes.attr("disabled", !1)
             }
+
             if (library.page >= library.totalPages - 1) {
                 library.btnAntigas.attr("disabled", !0).unbind().removeAttr('href')
             } else {
@@ -20487,6 +20509,7 @@ function CarregarPostsV2(url, container, library) {
     }).fail(function(reason) {
         console.log('reason: ', reason)
     });
+
     library.btnAntigas.unbind().click(function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -20495,6 +20518,7 @@ function CarregarPostsV2(url, container, library) {
         library.page++;
         CarregarPostsV2(url, container, library)
     });
+
     library.btnRecentes.unbind().click(function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -20502,7 +20526,7 @@ function CarregarPostsV2(url, container, library) {
         $(this).prop("disabled", !0).html("<i class='fa fa-spin fa-spinner fa-lg'>");
         library.page--;
         CarregarPostsV2(url, container, library)
-    })
+    });
 }
 
 function blockUI(el, lock, type, bgColor) {
@@ -20547,11 +20571,13 @@ function unblockUI(el, lock) {
     $(el).removeClass("blockUI-loading");
     $(el).stop().fadeTo("slow", 1);
     $(el).unblock()
-}
+};
+
 $(document).ready(function() {
     RunFunctions.forEach(function(callback) {
-        callback()
+        callback();
     });
+
     $(".btn").on("click", function() {
         $(this).blur()
     });
