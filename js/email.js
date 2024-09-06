@@ -3,7 +3,7 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
 
     // code fragment
     // the form id is myForm
-    $('form-contato').on('submit', function(event) {
+    document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
         event.preventDefault(); // prevent reload
         
         var formData = new FormData(this);
@@ -16,7 +16,7 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
         emailjs.send("service_8chfn3t","template_4i2vrwc",{
             nome: "willian",
             mensagem: "mensagem de teste",
-            name: "não sei que nome é",
+            name: "Contato do site",
             email: "ws.barreto@hotmail.com",
             });
     });
