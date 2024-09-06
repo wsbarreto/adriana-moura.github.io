@@ -5,15 +5,9 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
     // the form id is myForm
     document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
         event.preventDefault(); // prevent reload
-        
-        var formData = new FormData(this);
-        formData.append('service_id', data.SERVICE_ID);
-        formData.append('template_id', data.TEMPLATE_ID);
-        formData.append('user_id', data.PUBLICK_KEY);
-    
-        console.log('formData: ', formData);
+        console.log('oi willl: ');
 
-        emailjs.send("service_8chfn3t","template_4i2vrwc",{
+        emailjs.send(data.SERVICE_ID,data.TEMPLATE_ID,{
             nome: "willian",
             mensagem: "mensagem de teste",
             name: "Contato do site",
