@@ -11,11 +11,11 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
         console.log('oi willl: ');
 
         let template = {
-            nome: document.queryselector('input[name="nome"]').value,
-            email: document.queryselector('input[name="email"]').value,
-            telefone: document.queryselector('input[name="telefone"]').value,
-            mensagem: document.queryselector('textarea[name="mensagem"]').value,
-            profissao: document.queryselector('input[name="profissao"]').value
+            nome: document.querySelector('input[name="nome"]').value,
+            email: document.querySelector('input[name="email"]').value,
+            telefone: document.querySelector('input[name="telefone"]').value,
+            mensagem: document.querySelector('textarea[name="mensagem"]').value,
+            profissao: document.querySelector('input[name="profissao"]').value
         };
 
         let body_mensagem = '<div>';
@@ -27,8 +27,8 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
         body_mensagem += '</div>';
 
         emailjs.send(data.SERVICE_ID,data.TEMPLATE_ID,{
-            nome: document.queryselector('input[name="nome"]').value,
-            email: document.queryselector('input[name="email"]').value,
+            nome: template.nome,
+            email: template.email,
             mensagem: body_mensagem
             });
     });
