@@ -20555,32 +20555,38 @@ $(document).ready(function() {
     $(".btn").on("click", function() {
         $(this).blur()
     });
+
     $("img.lazy").lazyload({
         skip_invisible: !1,
         effect: "fadeOut"
     });
+
     $("img[data-class='img-conteudo']").each(function() {
         var elm = $(this);
         var img = elm.data("img");
         var pasta = elm.data("pasta");
         elm.attr('src', urlSite + '/assets/uploads/' + pasta + '/' + img).addClass('b-radius-5 img-responsive wow zoomIn').show()
     });
+
     $('.menu-buscar').on('click', function(event) {
         event.preventDefault();
         $('#buscarTopo').addClass('open');
         $('#buscaTopoForm input[type="search"]').focus()
     });
+
     $('#buscaTopoForm .fechar').on('click keyup', function(event) {
         if (event.target == this || event.target.className == 'fechar' || event.keyCode == 27) {
             $('#buscarTopo').removeClass('open')
         }
     });
+
     var $grid = $('.blog-masonry-container').imagesLoaded(function() {
         $grid.isotope({
             itemSelector: '.blog-masonry-item',
             layoutMode: 'masonry',
         })
     });
+
     var $grid2 = $('.fotos-masonry').imagesLoaded(function() {
         $grid2.isotope({
             itemSelector: '.isoitem',
@@ -20589,6 +20595,7 @@ $(document).ready(function() {
             }
         })
     });
+
     $('.blog-filters li').click(function() {
         var current = $(this);
         current.siblings('li').removeClass('active');
@@ -20599,6 +20606,7 @@ $(document).ready(function() {
             filter: filterValue
         })
     });
+
     $('[data-toggle="tooltip"]').tooltip({
         container: 'body',
         html: !0,
@@ -20610,26 +20618,31 @@ $(document).ready(function() {
             borderWidth: 12
         }, 200, 'easeOutQuint')
     });
+
     $(".destaque a, .destaque a").mouseout(function() {
         $(this).find(".txt").stop().animate({
             borderWidth: 0
         }, 800, 'easeOutQuint')
     });
+
     $('.background-image-holder').each(function() {
         var imgSrc = $(this).children('img').attr('src');
         $(this).css('background', 'url("' + imgSrc + '")');
         $(this).children('img').hide();
         $(this).css('background-position', 'initial')
     });
+
     setTimeout(function() {
         $('.background-image-holder').each(function() {
             $(this).addClass('fadeIn')
         })
     }, 200);
+
     jQuery(document).on('wheel mousewheel scroll', '.modal, .picker__holder', function(evt) {
         $('.modal').get(0).scrollTop += (evt.originalEvent.deltaY);
         return !1
     });
+
     $(".btn-group-radio").each(function() {
         var $widget = $(this);
         $widget.find('label.btn').click(function() {
@@ -20637,7 +20650,8 @@ $(document).ready(function() {
             $widget.find('.fa').addClass('fa-circle-o');
             $(this).find('.fa').removeClass('fa-circle-o').addClass('fa-check')
         })
-    })
+    });
+
     $(".btn-group-checkbox label").each(function() {
         var $button = $(this),
             $checkbox = $button.find('input:checkbox'),
@@ -20682,6 +20696,7 @@ $(document).ready(function() {
         }
         init()
     });
+
     $('.button-checkbox').each(function() {
         var $widget = $(this),
             $button = $widget.find('button'),
@@ -20723,7 +20738,7 @@ $(document).ready(function() {
             }
         }
         init()
-    })
+    });
 });
 
 function ativarMenu(classe) {
