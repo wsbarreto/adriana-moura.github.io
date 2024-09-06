@@ -3,7 +3,6 @@
     var divWhatsApp = $('#divWhatsApp');
     var modalBody = $('.modal-body');
     
-    console.log('2');
     $('#divMentoriaIndividual').click(function () {
         divTitle.html("<strong>Mentoria Individual</strong>");
 
