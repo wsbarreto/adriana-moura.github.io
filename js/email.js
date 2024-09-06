@@ -13,16 +13,12 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
     
         console.log('formData: ', formData);
 
-        $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
-            type: 'POST',
-            data: formData,
-            contentType: false, // auto-detection
-            processData: false // no need to parse formData to string
-        }).done(function() {
-            alert('Your mail is sent!');
-        }).fail(function(error) {
-            console.error('Oops... ', error);
-        });
+        emailjs.send("service_8chfn3t","template_4i2vrwc",{
+            nome: "willian",
+            mensagem: "mensagem de teste",
+            name: "não sei que nome é",
+            email: "ws.barreto@hotmail.com",
+            });
     });
 }).fail(function(jqXHR, textStatus, errorThrown) {
     console.error('Erro ao carregar o arquivo JSON: ', textStatus, errorThrown);
