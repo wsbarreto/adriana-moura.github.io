@@ -29,7 +29,8 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
         };  
 
         // const token = req.body['g-recaptcha-response'];
-        const url = `https://www.google.com/recaptcha/api/siteverify?secret=${data.SECRET_KEY}&response=${token}`;
+        const url = `https://www.google.com/recaptcha/api/siteverify?secret=${data.SECRET_KEY}&response`;
+        // const url = `https://www.google.com/recaptcha/api/siteverify?secret=${data.SECRET_KEY}&response=${token}`;
         console.log('url: ', url);
         $.ajax({
             url: url, // URL da API
