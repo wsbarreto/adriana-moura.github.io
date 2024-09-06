@@ -8,59 +8,13 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
         });
     })();
 
-    document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
-
-        let form = $(this);
-        let g_recaptcha = $('.g-recaptcha');
-        let iframe = $('iframe');
-
-        console.log('this: ', this);
-        console.log('form: ', form);
-        console.log('g_recaptcha: ', g_recaptcha);
-        console.log('iframe: ', iframe);
-        console.log('event: ', event);
-        console.log('will: ');
-
-        let templateParams = {
-            name: document.querySelector('input[name="nome"]').value,
-            email: document.querySelector('input[name="email"]').value,
-            message: document.querySelector('textarea[name="mensagem"]').value,
-        };  
-
-        // const token = req.body['g-recaptcha-response'];
-        const url = `https://www.google.com/recaptcha/api/siteverify?secret=${data.SECRET_KEY}&response`;
-        // const url = `https://www.google.com/recaptcha/api/siteverify?secret=${data.SECRET_KEY}&response=${token}`;
-        console.log('url: ', url);
-        $.ajax({
-            url: url, // URL da API
-            type: 'POST', // Método HTTP
-            contentType: 'application/json', // Tipo de conteúdo enviado
-            dataType: 'json', // Tipo de dado esperado
-            success: function(response) {
-                console.log('SUCCESS! ', response);
-                console.log(response); // Processa os dados da API
-            },
-            error: function(error) {
-                console.log('error! ', error);
-                console.error('There has been a problem with your AJAX operation:', error);
-            }
-        });
-        
-        emailjs.send(data.SERVICE_ID, data.TEMPLATE_ID, templateParams)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                alert('E-mail enviado com sucesso!');
-            }, function(error) {
-                console.log('FAILED...', error);
-                alert('Falha ao enviar e-mail.');
-            });
-        
-        // Estes IDs de template e service devem corresponder ao que você configurou no EmailJS
+        // these IDs from the previous steps
         emailjs.sendForm(data.SERVICE_ID, data.TEMPLATE_ID, this)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-            }, function(error) {
+            .then(() => {
+                console.log('SUCCESS!');
+            }, (error) => {
                 console.log('FAILED...', error);
             });
     });
@@ -72,7 +26,71 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
 
 
 
+// document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
+//     event.preventDefault();
 
+//     let form = $(this);
+//     let g_recaptcha = $('.g-recaptcha');
+//     let iframe = $('iframe');
+
+//     console.log('this: ', this);
+//     console.log('form: ', form);
+//     console.log('g_recaptcha: ', g_recaptcha);
+//     console.log('iframe: ', iframe);
+//     console.log('event: ', event);
+//     console.log('will: ');
+
+//     let templateParams = {
+//         name: document.querySelector('input[name="nome"]').value,
+//         email: document.querySelector('input[name="email"]').value,
+//         message: document.querySelector('textarea[name="mensagem"]').value,
+//     };
+
+//     // Obtém o valor do reCAPTCHA
+//     const recaptchaResponse = grecaptcha.getResponse();
+
+//     // Verifica se o reCAPTCHA foi completado
+//     if (recaptchaResponse.length === 0) {
+//         alert('Por favor, complete o reCAPTCHA.');
+//         return;
+//     }
+
+//     // const token = req.body['g-recaptcha-response'];
+//     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${data.SECRET_KEY}&response`;
+//     // const url = `https://www.google.com/recaptcha/api/siteverify?secret=${data.SECRET_KEY}&response=${token}`;
+//     console.log('url: ', url);
+//     $.ajax({
+//         url: url, // URL da API
+//         type: 'POST', // Método HTTP
+//         contentType: 'application/json', // Tipo de conteúdo enviado
+//         dataType: 'json', // Tipo de dado esperado
+//         success: function(response) {
+//             console.log('SUCCESS! ', response);
+//             console.log(response); // Processa os dados da API
+//         },
+//         error: function(error) {
+//             console.log('error! ', error);
+//             console.error('There has been a problem with your AJAX operation:', error);
+//         }
+//     });
+    
+//     emailjs.send(data.SERVICE_ID, data.TEMPLATE_ID, templateParams)
+//         .then(function(response) {
+//             console.log('SUCCESS!', response.status, response.text);
+//             alert('E-mail enviado com sucesso!');
+//         }, function(error) {
+//             console.log('FAILED...', error);
+//             alert('Falha ao enviar e-mail.');
+//         });
+    
+//     // Estes IDs de template e service devem corresponder ao que você configurou no EmailJS
+//     emailjs.sendForm(data.SERVICE_ID, data.TEMPLATE_ID, this)
+//         .then(function(response) {
+//             console.log('SUCCESS!', response.status, response.text);
+//         }, function(error) {
+//             console.log('FAILED...', error);
+//         });
+// });
 
 
 
