@@ -10,10 +10,26 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
         event.preventDefault(); // prevent reload
         console.log('oi willl: ');
 
+        let template = {
+            nome: document.queryselector('input[name="nome"]').value,
+            email: document.queryselector('input[name="email"]').value,
+            telefone: document.queryselector('input[name="telefone"]').value,
+            mensagem: document.queryselector('textarea[name="mensagem"]').value,
+            profissao: document.queryselector('input[name="profissao"]').value
+        };
+
+        let body_mensagem = '<div>';
+    	body_mensagem += '<p><span>Nome: </span>' + template.nome + '</p>';
+        body_mensagem += '<p><span>E-mail: </span>' + template.email + '</p>';
+        body_mensagem += '<p><span>Telefone: </span>' + template.telefone + '</p>';
+        body_mensagem += '<p><span>Profissão: </span>' + template.profissao + '</p>';
+		body_mensagem += '<p><span>Mensagem: </span>' + template.mensagem + '</p>';
+        body_mensagem += '</div>';
+
         emailjs.send(data.SERVICE_ID,data.TEMPLATE_ID,{
-            nome: "willian",
-            mensagem: "mensagem de teste",
-            email: "ws.barreto@hotmail.com",
+            nome: document.queryselector('input[name="nome"]').value,
+            email: document.queryselector('input[name="email"]').value,
+            mensagem: body_mensagem
             });
     });
 }).fail(function(jqXHR, textStatus, errorThrown) {
