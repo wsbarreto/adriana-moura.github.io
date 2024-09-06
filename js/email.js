@@ -11,15 +11,14 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
     document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
         event.preventDefault();
 
-        const form = $(this);
+        let form = $(this);
         let g_recaptcha = $('.g-recaptcha');
+        let iframe = $('iframe');
 
         console.log('this: ', this);
         console.log('form: ', form);
         console.log('g_recaptcha: ', g_recaptcha);
-
-        let formData = new FormData(this);
-        console.log('formData: ', formData);
+        console.log('iframe: ', iframe);
         console.log('event: ', event);
 
         let templateParams = {
@@ -30,7 +29,7 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
 
         // const token = req.body['g-recaptcha-response'];
         const url = `https://www.google.com/recaptcha/api/siteverify?secret=${data.SECRET_KEY}&response=${token}`;
-
+        console.log('url: ', url);
         $.ajax({
             url: url, // URL da API
             type: 'POST', // Método HTTP
