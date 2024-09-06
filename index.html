@@ -35,10 +35,10 @@
       <link rel="icon" href="assets/img/favicon.png" type="image/x-icon" />
       <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
       <title>Adriana Moura | Inteligência Emocional</title>
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800|Raleway:400,800&amp;subset=latin-ext" rel="stylesheet">
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/menu.css">
       <link rel="stylesheet" href="css/modal.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,800|Raleway:400,800&amp;subset=latin-ext">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.11.7/modernizr.min.js"></script>
       <script src="https://use.fontawesome.com/d3e0186f62.js"></script>
       <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -46,15 +46,15 @@
          var urlSite = "https://adrianamoura.com.br/"; 
          var RunFunctions = [function () { console.log("ExecutarFuncoes OK"); }];
       </script>
-      <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-      <script type="text/javascript">
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+      <!-- <script type="text/javascript">
          (function(){
             emailjs.init({
                publicKey: "7rclEQHz0eQe_IYyO", // Substitua pelo seu User ID
             });
          })();
       </script> -->
-      <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+      
       <script>
          (function(){
                emailjs.init("7rclEQHz0eQe_IYyO"); // Substitua YOUR_USER_ID pelo seu user ID do EmailJS
@@ -1077,6 +1077,8 @@
       <script type="text/javascript" src="js/email.js"></script>
       <script type="text/javascript" src="js/modal.js"></script>
       <script type="text/javascript">
+         const SITE_KEY = '6LfRzRQqAAAAAFqJ7XccTn7yrKZ8eTH1W9yDKBA7';
+
          RunFunctions.push(function () {
             function updateHandler(scoreDisplay) { scoreDisplay.text(startScore.score); }
             var controllerParallaxes = new ScrollMagic.Controller({ 
@@ -1241,6 +1243,7 @@
                   $("#instagrao").hide(); 
                } 
             }
+
             RunFunctions.push(function () { 
                $.instagramFeed({ 
                   'username': 'adrianamouracoach', 
@@ -1251,7 +1254,7 @@
                   'get_raw_json': true, 
                   'callback': myTemplate 
                }); 
-            })
+            });
 
             var validacoes = { 
                nome: { row: '.col-md-6', validators: { notEmpty: { message: 'Preencha este campo' } } }, 
