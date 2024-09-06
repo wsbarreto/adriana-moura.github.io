@@ -1,4 +1,8 @@
-emailjs.init("7rclEQHz0eQe_IYyO"); // Substitua com sua chave pública
+(function(){
+    emailjs.init({
+      publicKey: "7rclEQHz0eQe_IYyO",
+    });
+ })();
 
 $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json', function(data) {
     // the form id is myForm
