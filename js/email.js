@@ -1,13 +1,11 @@
 $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json', function(data) {
-    console.log('data: ', data); // Acessa o conteúdo do arquivo JSON
-
     // code fragment
     // the form id is myForm
     document.getElementById('form-contato').addEventListener('submit', function(event, resp) {
         event.preventDefault(); // prevent reload
         console.log('oi willl: ');
 
-        emailjs.send("service_8chfn3t","template_4i2vrwc",{
+        emailjs.send(data.SERVICE_ID,data.TEMPLATE_ID,{
             nome: "willian",
             mensagem: "mensagem de teste",
             email: "ws.barreto@hotmail.com",
