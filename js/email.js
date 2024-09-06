@@ -3,7 +3,7 @@ const TEMPLATE_ID = 'template_4i2vrwc';
 const PUBLICK_KEY = '7rclEQHz0eQe_IYyO';
 const SECRET_KEY = '6LdR0xQqAAAAAFWDo0Zf0HA0Zqa4ETNLxX8wEg7O';
 
-$.getJSON('../appsettings.json', function(data) {
+$.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json', function(data) {
     console.log('data: ', data); // Acessa o conteúdo do arquivo JSON
 }).fail(function(jqXHR, textStatus, errorThrown) {
     console.error('Erro ao carregar o arquivo JSON: ', textStatus, errorThrown);
@@ -26,15 +26,12 @@ document.getElementById('form-contato').addEventListener('submit', function(even
     let formData = new FormData(this);
     console.log('formData: ', formData);
     console.log('event: ', event);
-    console.log('resp: ', resp);
 
     let templateParams = {
         name: document.querySelector('input[name="nome"]').value,
         email: document.querySelector('input[name="email"]').value,
         message: document.querySelector('textarea[name="mensagem"]').value,
-    };
-
-    console.log('templateParams: ', templateParams);    
+    };  
 
     // const token = req.body['g-recaptcha-response'];
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&response=${token}`;
