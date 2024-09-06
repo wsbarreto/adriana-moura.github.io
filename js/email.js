@@ -7,10 +7,9 @@ $.getJSON('https://wsbarreto.github.io/adriana-moura.github.io/appsettings.json'
         event.preventDefault(); // prevent reload
         console.log('oi willl: ');
 
-        emailjs.send(data.SERVICE_ID,data.TEMPLATE_ID,{
+        emailjs.send("service_8chfn3t","template_4i2vrwc",{
             nome: "willian",
             mensagem: "mensagem de teste",
-            name: "Contato do site",
             email: "ws.barreto@hotmail.com",
             });
     });
